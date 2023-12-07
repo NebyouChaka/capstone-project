@@ -1,0 +1,5 @@
+capstone\project\recipes\RecipesApplication.class
+capstone\project\recipes\controller\AuthController.class
+capstone\project\recipes\database\entity\User.class
+capstone\project\recipes\controller\SlashController.class
+capstone\project\recipes\database\dao\UserDAO.class
