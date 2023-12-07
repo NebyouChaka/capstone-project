@@ -7,18 +7,18 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "users")
-public class User {
+@Table(name = "user_roles")
+public class UserRole {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "email")
-    private String email;
+    @Column(name = "user_id")
+    private Integer userId;
 
-    @Column(name = "password")
-    private String password;
+    @Column(name = "role_name")
+    private String roleName;
 
 }
