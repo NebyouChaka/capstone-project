@@ -15,7 +15,7 @@
                     <th>ID</th>
                     <th>Recipe Name</th>
                     <th>Type</th>
-                    <th>Images</th>
+                    <th>ImagesURL</th>
                 </tr>
             </thead>
             <tbody>
@@ -25,7 +25,7 @@
                         <td>${recipe.id}</td>
                         <td>${recipe.recipesName}</td>
                         <td>${recipe.type}</td>
-                        <td>${recipe.images}</td>
+                        <td>${recipe.imagesURL}</td>
                     </tr>
                 </c:forEach>
             </tbody>

@@ -1,44 +1,25 @@
 package capstone.project.recipes.formbean;
 
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Pattern;
+import org.hibernate.validator.constraints.Length;
+
 public class CreateRecipeFormBean {
 
     private Long id;
+
+    @NotEmpty(message = "Recipe Name is required.")
+    @Length(max = 45, message = "FRecipe Name must be less than 45 characters.")
+    @Pattern(regexp = "[a-zA-Z]+", message = "Recipe Name must contain only letters.")
     private String recipesName;
+
+    @NotEmpty(message = "First Name is required.")
+    @Length(max = 45, message = "First Name must be less than 45 characters.")
+    @Pattern(regexp = "[a-zA-Z]+", message = "First Name must contain only letters.")
     private String type;
     private String images;
 
-    // Getter and setter methods for each property
 
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getRecipesName() {
-        return recipesName;
-    }
-
-    public void setRecipesName(String recipesName) {
-        this.recipesName = recipesName;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getImages() {
-        return images;
-    }
-
-    public void setImages(String images) {
-        this.images = images;
-    }
 }
 

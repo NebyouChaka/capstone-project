@@ -1,13 +1,11 @@
 package capstone.project.recipes.database.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
 
-@Getter
-@Setter
+import javax.persistence.*;
+
 @Entity
-@Table(name = "recipes") // Assuming your table is named "recipes"
+@Table(name = "recipes")
 public class Recipe {
 
     @Id
@@ -21,9 +19,44 @@ public class Recipe {
     @Column(name = "type")
     private String type;
 
-    @Column(name = "images")
-    private String images;
+    @Column(name = "image_url")
+    private String imageURL;
 
-    // Other fields and methods...
+    // Constructors, getters, and setters
+
+    // You can generate these using your IDE or manually write them based on your requirements
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getRecipesName() {
+        return recipesName;
+    }
+
+    public void setRecipesName(String recipesName) {
+        this.recipesName = recipesName;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
+    }
 }
+
 
