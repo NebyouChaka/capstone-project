@@ -47,7 +47,7 @@ public class RecipeController {
                 typeSearch = "%" + typeSearch + "%";
             }
 
-            List<Recipe> recipes = recipeService.findByRecipesNameOrType(recipesNameSearch, typeSearch);
+            List<Recipe> recipes = recipeDAO.findByRecipesNameOrType(recipesNameSearch, typeSearch);
 
             response.addObject("recipeVar", recipes);
 
@@ -64,7 +64,7 @@ public class RecipeController {
         log.info("######################### In /recipe/edit #########################");
         ModelAndView response = new ModelAndView("recipe/create");
 
-        Recipe recipe = recipeService.findById(recipeId);
+        Recipe recipe = recipeDAO.findById(recipeId);
 
         if (!StringUtils.isEmpty(success)) {
             response.addObject("success", success);
@@ -76,7 +76,7 @@ public class RecipeController {
             form.setId(recipe.getId());
             form.setRecipesName(recipe.getRecipesName());
             form.setType(recipe.getType());
-            form.setImages(recipe.getImages());
+            form.setImagesURL(recipe.getImagesURL());
         } else {
             log.warn("Recipe with id " + recipeId + " was not found");
         }

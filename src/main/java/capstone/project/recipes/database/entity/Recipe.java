@@ -2,7 +2,7 @@ package capstone.project.recipes.database.entity;
 
 import jakarta.persistence.*;
 
-import javax.persistence.*;
+
 
 @Entity
 @Table(name = "recipes")
@@ -11,26 +11,26 @@ public class Recipe {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long id;
+    private Integer id;
 
-    @Column(name = "recipes_name")
+    @Column(name = "recipesName")
     private String recipesName;
 
     @Column(name = "type")
     private String type;
 
-    @Column(name = "image_url")
-    private String imageURL;
+    @Column(name = "imagesURL")
+    private String imagesURL;
 
     // Constructors, getters, and setters
 
-    // You can generate these using your IDE or manually write them based on your requirements
 
-    public Long getId() {
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -50,13 +50,14 @@ public class Recipe {
         this.type = type;
     }
 
-    public String getImageURL() {
-        return imageURL;
+    public String getImagesURL() {
+        return imagesURL;
     }
 
-    public void setImageURL(String imageURL) {
-        this.imageURL = imageURL;
+    public void setImagesURL(String imageURL) {
+        this.imagesURL = imageURL;
     }
 }
+
 
 

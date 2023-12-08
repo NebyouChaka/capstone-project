@@ -2,37 +2,35 @@ package capstone.project.recipes.database.entity;
 
 import jakarta.persistence.*;
 
-import javax.persistence.*;
-
 @Entity
-@Table(name = "favorite")
+@Table(name = "favorites")
 public class Favorite {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "favorite_id")
-    private Long favoriteId;
+    private Integer favoriteId;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "recipe_id")
+    @JoinColumn(name = "recipe_id", nullable = false)
     private Recipe recipe;
 
-    @Column(name = "image_url")
+    @Column(name = "imageURL")
     private String imageURL;
 
     // Constructors, getters, and setters
 
+    // You can generate these using your IDE or manually write them based on your requirements
 
-
-    public Long getFavoriteId() {
+    public Integer getFavoriteId() {
         return favoriteId;
     }
 
-    public void setFavoriteId(Long favoriteId) {
+    public void setFavoriteId(Integer favoriteId) {
         this.favoriteId = favoriteId;
     }
 

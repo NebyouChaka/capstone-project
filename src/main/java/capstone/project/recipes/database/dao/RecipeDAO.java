@@ -7,14 +7,12 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-public interface RecipeDAO extends JpaRepository<Recipe, Long> {
-    List<Recipe> findByRecipesNameOrType(String recipesName, String type);
-    // You can add more custom query methods as needed
+public interface RecipeDAO extends JpaRepository<Recipe, Integer> {
 
-    // Example: Find a recipe by its ID
-    Recipe findByRecipeId(Long recipeId);
+     Recipe findById(Integer Id);
+
 
     @Query("SELECT r FROM Recipe r WHERE r.recipesName LIKE :recipesName or r.type LIKE :type")
-    List<Recipe> findByFirstNameOrLastName(String recipesName, String type);
+    List<Recipe> findByRecipesNameOrType(String recipesName, String type);
 }
 
