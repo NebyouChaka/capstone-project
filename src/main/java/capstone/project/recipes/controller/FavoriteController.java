@@ -38,18 +38,18 @@ public class FavoriteController {
     }
 
     @PostMapping("/save")
-    public String saveFavorite(@ModelAttribute("favorite") Favorite favorite, @RequestParam("recipeIds") List<Long> recipeIds, Principal principal) {
+    public String saveFavorite(@ModelAttribute("favorite") Favorite favorite, @RequestParam("recipeIds") List<Integer> recipeIds, Principal principal) {
         // Get the current logged-in username
         String username = principal.getName();
 
-        // Set the username for the favorite (assuming you have a setUsername method in Favorite entity)
-        favorite.setUsername(username);
+        // Set the username for the favorite (assuming you have a setFavoriteId method in Favorite entity)
+        favorite.setFavoriteId(favoriteId);
 
         // Fetch the selected recipes from the database
         List<Recipe> selectedRecipes = recipeRepository.findAllById(recipeIds);
 
         // Set the selected recipes for the favorite
-        favorite.setRecipes(selectedRecipes);
+        favorite.setRecipe(selectedRecipes);
 
         // Save the favorite
         favoriteRepository.save(favorite);

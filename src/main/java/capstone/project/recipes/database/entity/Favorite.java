@@ -24,7 +24,6 @@ public class Favorite {
 
     // Constructors, getters, and setters
 
-    // You can generate these using your IDE or manually write them based on your requirements
 
     public Integer getFavoriteId() {
         return favoriteId;
