@@ -17,9 +17,9 @@ public class RecipeService {
 
     public Recipe createRecipe(CreateRecipeFormBean form) {
         log.debug("id: " + form.getId());
-        log.debug("recipesName: " + form.getRecipesName());
-        log.info("type: " + form.getType());
-        log.info("images: " + form.getImagesURL());
+        log.debug("name: " + form.getName());
+        log.info("type: " + form.getDescription());
+        log.info("images: " + form.getImage_url());
 
         // if the form.id is null then this is a create - if it is not null then it is an edit
         // first, we attempt to load it from the database (basically, we assume that it is going to be an edit)
@@ -31,11 +31,15 @@ public class RecipeService {
 
 
             // set the incoming values to be saved to the database
-            recipe.setRecipesName(form.getRecipesName());
-            recipe.setType(form.getType());
-            recipe.setImagesURL(form.getImagesURL());
+            recipe.setName(form.getName());
+            recipe.setDescription(form.getDescription());
+            recipe.setImage_url(form.getImage_url());
 
-            return recipeDAO.save(recipe);
+        log.debug("Before saving recipe to the database");
+        recipe = recipeDAO.save(recipe);
+        log.debug("After saving recipe to the database. Recipe ID: " + recipe.getId());
+        return recipeDAO.save(recipe);
+
 
     }
 }

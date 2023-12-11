@@ -8,12 +8,8 @@ public class Ingredients {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ingredient_id")
-    private Integer ingredientId;
-
-    @ManyToOne
-    @JoinColumn(name = "recipe_id")
-    private Recipe recipe;
+    @Column(name = "id")
+    private Integer id;
 
     @Column(name = "name")
     private String name;
@@ -21,27 +17,22 @@ public class Ingredients {
     @Column(name = "quantity")
     private Double quantity;
 
-    @Column(name = "unit")
-    private String unit;
+    @ManyToOne
+    @JoinColumn(name = "id")
 
-    // Constructors, getters, and setters
 
-    // You can generate these using your IDE or manually write them based on your requirements
+    // Constructors
 
-    public Integer getIngredientId() {
-        return ingredientId;
+
+
+    // Getters and Setters
+
+    public Integer getId() {
+        return id;
     }
 
-    public void setIngredientId(Integer ingredientId) {
-        this.ingredientId = ingredientId;
-    }
-
-    public Recipe getRecipe() {
-        return recipe;
-    }
-
-    public void setRecipe(Recipe recipe) {
-        this.recipe = recipe;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -60,12 +51,5 @@ public class Ingredients {
         this.quantity = quantity;
     }
 
-    public String getUnit() {
-        return unit;
-    }
 
-    public void setUnit(String unit) {
-        this.unit = unit;
-    }
 }
-

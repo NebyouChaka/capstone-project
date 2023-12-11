@@ -3,14 +3,23 @@
 
 
 
-<div class="input-group">
-  <div class="form-outline" data-mdb-input-init>
-    <input type="search" id="form1" class="form-control" />
-    <label class="form-label" for="form1">Search</label>
-  </div>
-  <button type="button" class="btn btn-primary" data-mdb-ripple-init>
-    <i class="fas fa-search"></i>
-  </button>
+<div class="container mt-5">
+    <form action="/recipe/search" method="GET">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-4 col-lg-3 mb-2" id="nav1">
+                <label for="nameSearch" class="form-label">Recipe Name</label>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="input-group">
+                    <input type="text" class="form-control" id="nameSearch" name="nameSearch" placeholder="Search by recipe name" value="${nameSearch}">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-search"></i> Search
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
 </div>
+
 
  <jsp:include page="../include/footer.jsp"/>

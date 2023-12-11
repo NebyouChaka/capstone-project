@@ -12,9 +12,10 @@ import lombok.Setter;
 public class CreateRecipeFormBean {
 
     private Integer id;
-    private String recipesName;
-    private String type;
-    private String imagesURL;
+    private String name;
+    private String description;
+    private String image_url;
+    private String user_id;
 
 
 

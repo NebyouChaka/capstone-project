@@ -29,30 +29,22 @@ public class RecipeController {
     private RecipeDAO recipeDAO;
 
     @GetMapping("/recipe/search")
-    public ModelAndView search(@RequestParam(required = false) String recipesNameSearch,
-                               @RequestParam(required = false) String typeSearch) {
+    public ModelAndView search(@RequestParam(required = false) String nameSearch) {
         ModelAndView response = new ModelAndView("recipe/search");
 
-        log.debug("In the recipe search controller method: recipesName = " + recipesNameSearch + " type = " + typeSearch);
+        log.debug("In the recipe search controller method: nameSearch = " + nameSearch);
 
-        if (!StringUtils.isEmpty(recipesNameSearch) || !StringUtils.isEmpty(typeSearch)) {
-            response.addObject("recipesNameSearch", recipesNameSearch);
-            response.addObject("typeSearch", typeSearch);
+        if (!StringUtils.isEmpty(nameSearch)) {
+            response.addObject("nameSearch", nameSearch);
 
-            if (!StringUtils.isEmpty(recipesNameSearch)) {
-                recipesNameSearch = "%" + recipesNameSearch + "%";
-            }
+            nameSearch = "%" + nameSearch + "%";
 
-            if (!StringUtils.isEmpty(typeSearch)) {
-                typeSearch = "%" + typeSearch + "%";
-            }
-
-            List<Recipe> recipes = recipeDAO.findByRecipesNameOrType(recipesNameSearch, typeSearch);
+            List<Recipe> recipes = recipeDAO.findByName(nameSearch);
 
             response.addObject("recipeVar", recipes);
 
             for (Recipe recipe : recipes) {
-                log.debug("Recipe: id = " + recipe.getId() + " recipesName = " + recipe.getRecipesName());
+                log.debug("Recipe: id = " + recipe.getId() + " Name = " + recipe.getName());
             }
         }
 
@@ -74,9 +66,10 @@ public class RecipeController {
 
         if (recipe != null) {
             form.setId(recipe.getId());
-            form.setRecipesName(recipe.getRecipesName());
-            form.setType(recipe.getType());
-            form.setImagesURL(recipe.getImagesURL());
+            form.setName(recipe.getName());
+            form.setDescription(recipe.getDescription());
+            form.setImage_url(recipe.getImage_url());
+            form.setUser_id(recipe. getUser_id());
         } else {
             log.warn("Recipe with id " + recipeId + " was not found");
         }
@@ -122,3 +115,4 @@ public class RecipeController {
         return response;
     }
 }
+

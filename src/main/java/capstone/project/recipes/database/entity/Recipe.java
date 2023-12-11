@@ -3,7 +3,6 @@ package capstone.project.recipes.database.entity;
 import jakarta.persistence.*;
 
 
-
 @Entity
 @Table(name = "recipes")
 public class Recipe {
@@ -13,18 +12,19 @@ public class Recipe {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "recipesName")
-    private String recipesName;
+    @Column(name = "name")
+    private String name;
 
-    @Column(name = "type")
-    private String type;
+    @Column(name = "description")
+    private String description;
 
-    @Column(name = "imagesURL")
-    private String imagesURL;
+    @Column(name = "image_url")
+    private String image_url;
+
+    @Column(name = "user_id")
+    private String user_id;
 
     // Constructors, getters, and setters
-
-
 
     public Integer getId() {
         return id;
@@ -34,28 +34,36 @@ public class Recipe {
         this.id = id;
     }
 
-    public String getRecipesName() {
-        return recipesName;
+    public String getName() {
+        return name;
     }
 
-    public void setRecipesName(String recipesName) {
-        this.recipesName = recipesName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getType() {
-        return type;
+    public String getDescription() {
+        return description;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public String getImagesURL() {
-        return imagesURL;
+    public String getImage_url() {
+        return image_url;
     }
 
-    public void setImagesURL(String imageURL) {
-        this.imagesURL = imageURL;
+    public void setImage_url(String image_url) {
+        this.image_url = image_url;
+    }
+
+    public String getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(String user_id) {
+        this.user_id = user_id;
     }
 }
 

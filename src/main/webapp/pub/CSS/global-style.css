@@ -1,25 +1,31 @@
- body {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
+
+.navbar-brand{
+     margin-left: 95px;
+}
+.navbar-nav li {
+    margin-right: 65px; /* You can adjust this value to control the space between li elements */
 
 }
-
-.footer-bg-color {
-            background-color: #f1f1f1; /* Light gray background color */
-            text-align: center;
-            color: #333; /* Set text color */
-            margin-top: auto; /* Push to the bottom */
-            padding: 20px 0;
-
+.navbar-custom {
+    background-color: transparent !important; /* Use !important to override Bootstrap styles */
+}
+.navbar-custom .nav-link {
+    color: black !important; /* Set the font color to white */
+}
+/*.nav1{
+   margin-left:200px;
+   padding-left:100px;
+}
+*/
+.center-vertical {
+    display: flex;
+    align-items: center;
+    min-height: 100vh; /* Ensure it takes at least the full height of the viewport */
 }
 
-.footer-content {
-            max-width: 600px; /* Adjust the max-width based on your needs */
-            padding: 20px;
-            border-radius: 10px;
-            background-color: #fff; /* Container background color */
-            margin: 0 auto; /* Center the container horizontally */
+/* Centering the form specifically */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

@@ -23,5 +23,6 @@ C:\Users\nebyo\Devlopment\Recipes\src\main\java\capstone\project\recipes\Recipes
 C:\Users\nebyo\Devlopment\Recipes\src\main\java\capstone\project\recipes\database\dao\RecipeDAO.java
 C:\Users\nebyo\Devlopment\Recipes\src\main\java\capstone\project\recipes\controller\IngredientsController.java
 C:\Users\nebyo\Devlopment\Recipes\src\main\java\capstone\project\recipes\database\entity\Favorite.java
+C:\Users\nebyo\Devlopment\Recipes\src\main\java\capstone\project\recipes\config\SecurityConfig.java
 C:\Users\nebyo\Devlopment\Recipes\src\main\java\capstone\project\recipes\database\entity\Ingredients.java
 C:\Users\nebyo\Devlopment\Recipes\src\main\java\capstone\project\recipes\repository\RecipeRepository.java
