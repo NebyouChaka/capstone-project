@@ -21,19 +21,26 @@
         </button>
        <div class="mx-auto"  id="navbarNav">
            <ul class="navbar-nav justify-content-center">
+            <li class="nav-item">
+                 <a class="nav-link" href="/recipe/recipes">Recipes</a>
+                 </li>
                <li class="nav-item">
                    <a class="nav-link" href="/recipe/create">Create recipes</a>
                </li>
                <li class="nav-item">
                    <a class="nav-link" href="/recipe/search">Search recipes</a>
                </li>
-
                <sec:authorize access="!isAuthenticated()">
                   <li class="nav-item">
                         <a class="nav-link" href="/auth/register">User Registration</a>
                     </li>
                    <li class="nav-item">
                        <a class="nav-link" href="/auth/login">Login</a>
+                   </li>
+               </sec:authorize>
+                <sec:authorize access="isAuthenticated()">
+                   <li class="nav-item">
+                     <a class="nav-link" href="/userFavorite/favorite">Favorites</a>
                    </li>
                </sec:authorize>
                <sec:authorize access="hasAnyAuthority('ADMIN')">

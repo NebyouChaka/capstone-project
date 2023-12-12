@@ -9,7 +9,7 @@
                 <!-- Grid column -->
                 <div class="col-md-2">
                     <h6 class="text-uppercase font-weight-bold">
-                        <a href="#!" class="text-white">Recipes</a>
+                        <a href="/recipe/recipes!" class="text-white">Recipes</a>
                     </h6>
                 </div>
                 <!-- Grid column -->
@@ -17,7 +17,7 @@
                 <!-- Grid column -->
                 <div class="col-md-2">
                     <h6 class="text-uppercase font-weight-bold">
-                        <a href="#!" class="text-white">Create Recipes</a>
+                        <a href="/recipe/create" class="text-white">Create Recipes</a>
                     </h6>
                 </div>
                 <!-- Grid column -->
@@ -25,7 +25,7 @@
                 <!-- Grid column -->
                 <div class="col-md-2">
                     <h6 class="text-uppercase font-weight-bold">
-                        <a href="#!" class="text-white">Search Recipes</a>
+                        <a href="/recipe/search"" class="text-white">Search Recipes</a>
                     </h6>
                 </div>
                 <!-- Grid column -->

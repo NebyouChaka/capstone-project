@@ -25,6 +25,7 @@ public class RecipeController {
 
     @Autowired
     private RecipeService recipeService;
+
     @Autowired
     private RecipeDAO recipeDAO;
 
@@ -69,7 +70,7 @@ public class RecipeController {
             form.setName(recipe.getName());
             form.setDescription(recipe.getDescription());
             form.setImage_url(recipe.getImage_url());
-            form.setUser_id(recipe. getUser_id());
+//            form.setUser_id(recipe.getUser_id());
         } else {
             log.warn("Recipe with id " + recipeId + " was not found");
         }
@@ -111,6 +112,16 @@ public class RecipeController {
 
         ModelAndView response = new ModelAndView();
         response.setViewName("redirect:/recipe/edit/" + r.getId() + "?success=Recipe Saved Successfully");
+
+        return response;
+    }
+    @GetMapping("/recipe/detail/{recipeId}")
+    public ModelAndView viewRecipeDetail(@PathVariable Long recipeId) {
+        // Fetch the recipe by ID from the repository (RecipeDAO)
+        Recipe recipe = recipeDAO.findById(recipeId).orElse(null);
+
+        ModelAndView response = new ModelAndView("recipe/recipeDetail");
+        response.addObject("recipe", recipe);
 
         return response;
     }

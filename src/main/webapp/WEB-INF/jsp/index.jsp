@@ -24,26 +24,20 @@
         </div>
     </div>
     <!-- Inserted images end here -->
+<div class="container mt-5">
+    <h1>Recipes</h1>
 
-    <c:if test="${not empty featuredRecipes}">
-        <div class="row">
-            <c:forEach var="recipe" items="${featuredRecipes}">
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <img src="${recipe.imagesURL}" alt="${recipe.recipesName}" class="card-img-top img-fluid" style="height: 200px;">
-                        <div class="card-body">
-                            <h5 class="card-title">${recipe.name}</h5>
-                            <p class="card-text">${recipe.id}</p>
-                        </div>
-                    </div>
-                </div>
-            </c:forEach>
+    <c:forEach items="${recipes}" var="recipe">
+        <div class="card mb-3">
+            <img src="${recipe.image_url}" class="card-img-top" alt="${recipe.name}">
+            <div class="card-body">
+                <h5 class="card-title">${recipe.name}</h5>
+                <p class="card-text">${recipe.description}</p>
+                <a href="/recipe/detail/${recipe.id}" class="btn btn-primary">View Recipe</a>
+            </div>
         </div>
-    </c:if>
-
-    <c:if test="${empty featuredRecipes}">
-        <p class="alert alert-info">No featured recipes available.</p>
-    </c:if>
+    </c:forEach>
+</div>
 </div>
 
 <jsp:include page="include/footer.jsp"/>

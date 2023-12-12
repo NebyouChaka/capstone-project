@@ -32,36 +32,36 @@
             <input type="hidden" name="id" value="${form.id}">
 
             <div class="mt-3">
-                <label for="recipeName" class="form-label">Recipe Name</label>
-                <input type="text" class="form-control" id="recipeName" name="recipeName" aria-describedby="recipeNameHelp" value="${form.firstName}">
+                <label for="name" class="form-label">Recipe Name</label>
+                <input type="text" class="form-control" id="name" name="name" aria-describedby="recipeNameHelp" value="${form.name}">
                 <div id="recipeNameHelp" class="form-text">Please let us know your recipe name</div>
             </div>
-            <c:if test="${errors.hasFieldErrors('recipeName')}">
+            <c:if test="${errors.hasFieldErrors('name')}">
                 <div style="color:red">
-                    <c:forEach items="${errors.getFieldErrors('recipeName')}" var="error">
+                    <c:forEach items="${errors.getFieldErrors('name')}" var="error">
                         ${error.defaultMessage}<br>
                     </c:forEach>
                 </div>
             </c:if>
               <div class="mt-3">
                             <label for="description" class="form-label">Description</label>
-                            <input type="text" class="form-control" id="description" name="description" aria-describedby="descriptionHelp" value="${form.firstName}">
+                            <input type="text" class="form-control" id="description" name="description" aria-describedby="descriptionHelp" value="${form.description}">
                             <div id="descriptionHelp" class="form-text">Please let us your recipe description</div>
                         </div>
-                        <c:if test="${errors.hasFieldErrors('recipeName')}">
+                        <c:if test="${errors.hasFieldErrors('description')}">
                             <div style="color:red">
-                                <c:forEach items="${errors.getFieldErrors('recipeName')}" var="error">
+                                <c:forEach items="${errors.getFieldErrors('description')}" var="error">
                                     ${error.defaultMessage}<br>
                                 </c:forEach>
                             </div>
                         </c:if>
                   <div class="mt-3">
-                      <label for="imageUrl" class="form-label">Image URL</label>
-                         <input type="text" class="form-control" id="imageUrl" name="imageUrl" value="${form.imageUrl}">
+                      <label for="image_url" class="form-label">Image URL</label>
+                         <input type="text" class="form-control" id="image_url" name="image_url" value="${form.image_url}">
                          </div>
-                      <c:if test="${errors.hasFieldErrors('imageUrl')}">
+                      <c:if test="${errors.hasFieldErrors('image_url')}">
                            <div style="color:red">
-                                 <c:forEach items="${errors.getFieldErrors('imageUrl')}" var="error">
+                                 <c:forEach items="${errors.getFieldErrors('image_url')}" var="error">
                                         ${error.defaultMessage}<br>
                                    </c:forEach>
                              </div>

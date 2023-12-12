@@ -13,10 +13,11 @@
             <c:forEach var="recipe" items="${allRecipes}">
                 <div class="col-md-4 mb-4">
                     <div class="card">
-                        <img src="${recipe.imagesURL}" alt="${recipe.recipesName}" class="card-img-top">
+                        <img src="${recipe.imagesURL}" alt="${recipe.recipe.name}" class="card-img-top">
                         <div class="card-body">
-                            <h5 class="card-title">${recipe.recipesName}</h5>
-                            <p class="card-text">${recipe.type}</p>
+                            <h5 class="card-title">${recipe.name}</h5>
+                            <p class="card-text">${recipe.description}</p>
+                            <h1>Index</h1>
                         </div>
                     </div>
                 </div>

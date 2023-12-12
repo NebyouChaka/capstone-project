@@ -21,5 +21,39 @@
     </form>
 </div>
 
+<c:if test="${not empty recipeVar}">
+    <section class="py-5" style="background-color: #f8f9fa;">
+        <div class="container text-center">
+            <h1 class="display-4 mb-5 font-weight-bold">Customers Found: ${recipe.size()}</h1>
+
+            <div class="table-responsive">
+                <table class="table table-hover" style="background-color: #ffffff;">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Image_URL</th>
+                            <th>Edit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <c:forEach items="${recipeVar}" var="recipe">
+                            <tr>
+                                <td>${recipe.id}</td>
+                                <td>${recipe.name}</td>
+                                <td>${recipe.description}</td>
+
+                                <td><img src="${recipe.image_url}" style="max-width:100px"></td>
+                                <td><a href="/recipe/edit/${recipe.id}">Edit</a></td>
+                            </tr>
+                        </c:forEach>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </section>
+</c:if>
 
  <jsp:include page="../include/footer.jsp"/>
