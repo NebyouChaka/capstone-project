@@ -21,15 +21,24 @@
         </button>
        <div class="mx-auto"  id="navbarNav">
            <ul class="navbar-nav justify-content-center">
-            <li class="nav-item">
-                 <a class="nav-link" href="/recipe/recipes">Recipes</a>
-                 </li>
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Recipes
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="${pageContext.request.contextPath}/recipe/recipes">All Recipes</a>
+                  <c:forEach items="${categories}" var="category">
+                      <a class="dropdown-item" href="${pageContext.request.contextPath}/recipe/recipes/${category.toLowerCase()}">${category}</a>
+                  </c:forEach>
+              </div>
+          </li>
                <li class="nav-item">
                    <a class="nav-link" href="/recipe/create">Create recipes</a>
                </li>
                <li class="nav-item">
                    <a class="nav-link" href="/recipe/search">Search recipes</a>
-               </li>
+                </li>
+
                <sec:authorize access="!isAuthenticated()">
                   <li class="nav-item">
                         <a class="nav-link" href="/auth/register">User Registration</a>

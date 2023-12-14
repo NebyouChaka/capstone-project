@@ -21,6 +21,9 @@ public class Recipe {
     @Column(name = "image_url")
     private String image_url;
 
+    @Column(name = "category")
+    private String category;
+
     @Column(name = "user_id")
     private Integer user_id;
 
@@ -56,6 +59,14 @@ public class Recipe {
 
     public void setImage_url(String image_url) {
         this.image_url = image_url;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.image_url = category;
     }
 
     public Integer getUser_id() {

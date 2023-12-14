@@ -15,6 +15,7 @@ public class CreateRecipeFormBean {
     private String name;
     private String description;
     private String image_url;
+    private String category;
     private String user_id;
 
 

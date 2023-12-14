@@ -56,6 +56,19 @@
                             </div>
                         </c:if>
                   <div class="mt-3">
+                      <label for="category" class="form-label">Category</label>
+                      <input type="text" class="form-control" id="category" name="category" aria-describedby="categoryHelp" value="${form.category}">
+                      <div id="categoryHelp" class="form-text">Please specify the recipe category (e.g., Breakfast, Lunch, Dinner).</div>
+                  </div>
+                  <c:if test="${errors.hasFieldErrors('category')}">
+                      <div style="color: red;">
+                          <c:forEach items="${errors.getFieldErrors('category')}" var="error">
+                              ${error.defaultMessage}<br>
+                          </c:forEach>
+                      </div>
+                  </c:if>
+
+                  <div class="mt-3">
                       <label for="image_url" class="form-label">Image URL</label>
                          <input type="text" class="form-control" id="image_url" name="image_url" value="${form.image_url}">
                          </div>

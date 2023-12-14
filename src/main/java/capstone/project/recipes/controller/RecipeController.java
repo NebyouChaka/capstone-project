@@ -9,11 +9,13 @@ import io.micrometer.common.util.StringUtils;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -28,6 +30,8 @@ public class RecipeController {
 
     @Autowired
     private RecipeDAO recipeDAO;
+
+    @PreAuthorize("isAuthenticated()")
 
     @GetMapping("/recipe/search")
     public ModelAndView search(@RequestParam(required = false) String nameSearch) {
@@ -115,15 +119,42 @@ public class RecipeController {
 
         return response;
     }
-    @GetMapping("/recipe/detail/{recipeId}")
-    public ModelAndView viewRecipeDetail(@PathVariable Long recipeId) {
-        // Fetch the recipe by ID from the repository (RecipeDAO)
-        Recipe recipe = recipeDAO.findById(recipeId).orElse(null);
+    @RequestMapping("/recipe/detail")
+    public ModelAndView viewRecipeDetail(@RequestParam Integer id) {
+        ModelAndView response = new ModelAndView("recipe/detail");
 
-        ModelAndView response = new ModelAndView("recipe/recipeDetail");
+        Recipe recipe = recipeDAO.findById(id);
+
+        if (recipe == null) {
+            log.warn("Recipe with ID " + id + " was not found");
+            // In a real application, you might redirect to a 404 page because the recipe was not found
+            response.setViewName("redirect:/error/404");
+            return response;
+        }
+
         response.addObject("recipe", recipe);
 
         return response;
     }
+    @GetMapping("/recipe/recipes")
+    public ModelAndView viewAllRecipes() {
+        List<Recipe> recipes = recipeService.getAllRecipes();
+        ModelAndView modelAndView = new ModelAndView("recipes");
+        modelAndView.addObject("recipes", recipes);
+        return modelAndView;
+    }
+
+    @GetMapping("/recipe/recipes/{category}")
+    public ModelAndView viewRecipesByCategory(@PathVariable String category) {
+        List<Recipe> recipes = recipeService.getRecipesByCategory(category);
+
+        ModelAndView modelAndView = new ModelAndView("recipes");
+        modelAndView.addObject("recipes", recipes);
+        modelAndView.addObject("category", category); // Add the category to the model
+        return modelAndView;
+    }
+
+
+
 }
 

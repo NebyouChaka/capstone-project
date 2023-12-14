@@ -13,6 +13,8 @@ public interface RecipeDAO extends JpaRepository<Recipe, Long> {
     @Query("SELECT r FROM Recipe r WHERE r.name LIKE %:name%")
     List<Recipe> findByName(@Param("name") String name);
 
+    List<Recipe> getRecipesByCategory(@Param("category") String category);
+    List<Recipe> findAll();
 
     Recipe findById(Integer id);
 }

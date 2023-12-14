@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.List;
 import java.util.Optional;
 
 @Slf4j
@@ -50,4 +51,18 @@ public class RecipeService {
 
 
     }
+
+
+        public List<Recipe> getAllRecipes() {
+            return recipeDAO.findAll(); // Implement this method in your DAO
+        }
+
+        public List<Recipe> getRecipesByCategory(String category) {
+            return recipeDAO.getRecipesByCategory(category); // Implement this method in your DAO
+
+        }
+    public Recipe findById(int recipeId) {
+        return recipeDAO.findById(recipeId);
+    }
+
 }

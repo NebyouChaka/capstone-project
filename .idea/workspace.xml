@@ -5,20 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ec6004cf-3aba-4f9a-8a55-48cf3306c693" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/recipe/favorites.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/controller/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/controller/AuthController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/controller/RecipeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/controller/RecipeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/controller/UserFavoriteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/controller/UserFavoriteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/database/dao/RecipeDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/database/dao/RecipeDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/database/dao/UserFavoriteDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/database/dao/UserFavoriteDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/database/entity/Recipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/database/entity/Recipe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/database/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/database/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/formbean/CreateRecipeFormBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/formbean/CreateRecipeFormBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/repository/RecipeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/repository/RecipeRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/repository/UserFavoriteRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/repository/UserFavoriteRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/service/IngredientsService.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/service/RecipeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/service/RecipeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/include/footer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/include/footer.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/include/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/include/header.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/recipe/Recipes.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/recipe/Recipes.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/recipe/create.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/recipe/create.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/recipe/recipeDetail.jsp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/recipe/search.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/recipe/search.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/userFavorite/favorite.jsp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/pub/CSS/global-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pub/CSS/global-style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -32,8 +39,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -61,6 +68,11 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\nebyo\Devlopment\recipes\src\main\webapp\WEB-INF\jsp\recipe" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="RecipesApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
