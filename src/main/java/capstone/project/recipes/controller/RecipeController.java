@@ -3,7 +3,9 @@ package capstone.project.recipes.controller;
 
 import capstone.project.recipes.database.dao.RecipeDAO;
 import capstone.project.recipes.database.entity.Recipe;
+import capstone.project.recipes.database.entity.User;
 import capstone.project.recipes.formbean.CreateRecipeFormBean;
+import capstone.project.recipes.security.AuthenticatedUserService;
 import capstone.project.recipes.service.RecipeService;
 import io.micrometer.common.util.StringUtils;
 import jakarta.validation.Valid;
@@ -13,10 +15,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -30,8 +29,9 @@ public class RecipeController {
 
     @Autowired
     private RecipeDAO recipeDAO;
+    @Autowired
+    private AuthenticatedUserService authenticatedUserService;
 
-    @PreAuthorize("isAuthenticated()")
 
     @GetMapping("/recipe/search")
     public ModelAndView search(@RequestParam(required = false) String nameSearch) {
@@ -56,31 +56,34 @@ public class RecipeController {
         return response;
     }
 
-    @GetMapping("/recipe/edit/{recipeId}")
-    public ModelAndView editRecipe(@PathVariable int recipeId, @RequestParam(required = false) String success) {
-        log.info("######################### In /recipe/edit #########################");
-        ModelAndView response = new ModelAndView("recipe/create");
 
+    @GetMapping("/recipe/edit/{recipeId}")
+    @PreAuthorize("isAuthenticated()")
+    public ModelAndView editRecipe(@PathVariable int recipeId) {
+        // Fetch the currently logged-in user
+
+        User currentUser = authenticatedUserService.loadCurrentUser();
+
+        // Fetch the recipe
         Recipe recipe = recipeDAO.findById(recipeId);
 
-        if (!StringUtils.isEmpty(success)) {
-            response.addObject("success", success);
+        // Check if the recipe exists and belongs to the current user
+        if (recipe == null || currentUser == null || !recipe.getUser_id().equals(currentUser.getId())) {
+            log.warn("Unauthorized access attempt for recipe ID: " + recipeId);
+            return new ModelAndView("redirect:/error/404"); // Redirect to an error or access denied page
         }
 
+        // Populate the form for editing
         CreateRecipeFormBean form = new CreateRecipeFormBean();
+        form.setId(recipe.getId());
+        form.setName(recipe.getName());
+        form.setDescription(recipe.getDescription());
+        form.setImage_url(recipe.getImage_url());
+        form.setCategory(recipe.getCategory());
+        // Populate other fields as necessary
 
-        if (recipe != null) {
-            form.setId(recipe.getId());
-            form.setName(recipe.getName());
-            form.setDescription(recipe.getDescription());
-            form.setImage_url(recipe.getImage_url());
-//            form.setUser_id(recipe.getUser_id());
-        } else {
-            log.warn("Recipe with id " + recipeId + " was not found");
-        }
-
+        ModelAndView response = new ModelAndView("recipe/create");
         response.addObject("form", form);
-
         return response;
     }
 
@@ -127,7 +130,7 @@ public class RecipeController {
 
         if (recipe == null) {
             log.warn("Recipe with ID " + id + " was not found");
-            // In a real application, you might redirect to a 404 page because the recipe was not found
+
             response.setViewName("redirect:/error/404");
             return response;
         }
@@ -153,8 +156,20 @@ public class RecipeController {
         modelAndView.addObject("category", category); // Add the category to the model
         return modelAndView;
     }
+    @GetMapping("/recipe/delete/{recipeId}")
+    public String deleteRecipe(@PathVariable int recipeId) {
+        log.info("Deleting recipe with ID: " + recipeId);
+        Recipe recipe = recipeDAO.findById(recipeId);
 
+        if (recipe != null) {
+            recipeDAO.delete(recipe);
+            log.info("Recipe deleted successfully.");
+        } else {
+            log.warn("Recipe with id " + recipeId + " was not found.");
+        }
 
+        return "redirect:/admin/index"; // Redirecting to the admin page or wherever appropriate
+    }
 
 }
 

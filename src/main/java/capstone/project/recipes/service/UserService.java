@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Locale;
 
 @Slf4j
@@ -35,6 +36,9 @@ public class UserService {
     }
     public User findById(Long userId) {
         return userDao.findById(userId).orElse(null);
+    }
+    public List<User> getAllUsers() {
+        return userDao.findAll();
     }
 
 }

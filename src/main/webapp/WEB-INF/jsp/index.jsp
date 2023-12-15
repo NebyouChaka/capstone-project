@@ -27,17 +27,17 @@
 <div class="container mt-5">
     <h1>Recipes</h1>
 
-    <c:forEach items="${recipes}" var="recipe">
-        <div class="card mb-3">
-            <img src="${recipe.image_url}" class="card-img-top" alt="${recipe.name}">
-            <div class="card-body">
-                <h5 class="card-title">${recipe.name}</h5>
-                <p class="card-text">${recipe.description}</p>
-                <a href="/recipe/detail/${recipe.id}" class="btn btn-primary">View Recipe</a>
-            </div>
-        </div>
-    </c:forEach>
+    <div class="recipes-container1">
+       <c:forEach items="${recipes}" var="recipe">
+           <div class="recipe-item">
+               <a href="${pageContext.request.contextPath}/recipe/detail?id=${recipe.id}">
+                   <img src="${recipe.image_url}" alt="Image of ${recipe.name}" class="img-fluid" style="height: 200px;">
+                   <h3>${recipe.name}</h3>
+               </a>
+           </div>
+       </c:forEach>
+    </div>
 </div>
-</div>
+<div class="spacer"></div>
 
 <jsp:include page="include/footer.jsp"/>

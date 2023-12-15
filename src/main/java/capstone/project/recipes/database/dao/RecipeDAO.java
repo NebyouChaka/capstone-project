@@ -2,6 +2,7 @@ package capstone.project.recipes.database.dao;
 
 
 import capstone.project.recipes.database.entity.Recipe;
+import capstone.project.recipes.database.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -15,6 +16,7 @@ public interface RecipeDAO extends JpaRepository<Recipe, Long> {
 
     List<Recipe> getRecipesByCategory(@Param("category") String category);
     List<Recipe> findAll();
+
 
     Recipe findById(Integer id);
 }

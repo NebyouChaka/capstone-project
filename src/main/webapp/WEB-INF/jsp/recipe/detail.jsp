@@ -18,26 +18,32 @@
 </section>
 
 <section>
-    <div class="table-container">
+    <div class="content-flex-container"> <!-- Flexbox container -->
+
+        <!-- Card Content -->
         <div class="card-container">
-            <div class="card1" style="width: 28rem;">
+            <div class="card1">
                 <div class="card-body1">
                     <h5 class="card-title">${recipe.name}</h5>
                     <p class="card-text"><strong>Recipe ID:</strong> ${recipe.id}</p>
                     <p class="card-text"><strong>Description:</strong> ${recipe.description}</p>
                     <p class="card-text"><strong>Category:</strong> ${recipe.category}</p>
                     <!-- Add more recipe details here as needed -->
-                    <a href="/userFavorite/addToFavorites/${recipeId}" class="btn btn-primary">Add to Favorites</a>
+                     <a href="/recipe/${recipe.id}/addIngredient" class="btn btn-secondary">Add Ingredient</a>
                 </div>
             </div>
         </div>
+
+        <!-- Image Container -->
         <div class="image-container">
             <div class="imageSetUp">
-                <img class="card-img-top" src="${recipe.image_url}" alt="Card image cap" style="max-width: 100%; height: auto;">
+                <img class="card-img-top" src="${recipe.image_url}" alt="Card image cap" style="max-width: 400px; height: 400px;">
             </div>
         </div>
+
     </div>
 </section>
+
 
 
 

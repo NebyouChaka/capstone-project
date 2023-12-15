@@ -5,7 +5,7 @@
     <div class="bg-light2 pt-5 pb-5">
         <div class="row">
             <div class="col-12 text-center">
-                <h1 class="m-0">404 Error</h1>
+                <img src="/pub/images/404 error.jpg" alt="404 Error" />
             </div>
         </div>
     </div>

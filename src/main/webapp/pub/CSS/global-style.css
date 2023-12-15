@@ -35,23 +35,55 @@
     justify-content: center;
 }
 
-/* Create a flex container for the table cells */
-.table-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-     /* Adjust the horizontal padding as needed */
-    margin-right:500px;
-    margin-left:500px;
-    margin-top:90px;
-    margin-bottom:10px;
-    padding:100px;
-    max-width: 50%;
-    height: auto;
+.recipes-container1 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Creates 4 columns */
+    grid-gap: 20px; /* Space between rows and columns */
+    margin-bottom: 10px
 }
 
+.recipe-item img {
+    width: 300px;
+    height:300px;
+    display: block;
+}
 
+.spacer {
+    height: 300px; /* Adjust this value to create sufficient space above the footer */
+}
+.btn-custom-edit {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    width: 80px;
+    margin: 5px;
+}
 
+.btn-custom-delete {
+    background-color: #f44336; /* Red background */
+    color: white; /* White text */
+    width: 80px;
+    margin: 5px;
+}
+
+.content-flex-container {
+    display: flex;
+    align-items: center; /* Aligns items vertically center */
+    justify-content: center; /* Centers items and reduces space between them */
+    padding: 50px;
+    margin:50px
+}
+
+.card-container {
+    flex: 1; /* Allows the card to grow as needed */
+    margin-right: 10px; /* Optional: Adds margin to the right of the card */
+}
+
+.image-container {
+    flex: 1; /* Allows the image container to grow as needed */
+    margin-left: 10px; /* Optional: Adds margin to the left of the image */
+}
+
+}
 
 
 

@@ -23,37 +23,34 @@ public class RecipeService {
     private AuthenticatedUserService authenticatedUserService;
 
     public Recipe createRecipe(CreateRecipeFormBean form) {
-        log.debug("id: " + form.getId());
-        log.debug("name: " + form.getName());
-        log.info("description: " + form.getDescription());
-        log.info("image_url: " + form.getImage_url());
+        Recipe recipe;
 
-        // if the form.id is null then this is a create - if it is not null then it is an edit
-        // first, we attempt to load it from the database (basically, we assume that it is going to be an edit)
-        Recipe recipe = recipeDAO.findById(form.getId());
-
-        if (recipe == null) {
+        if (form.getId() == null) {
             recipe = new Recipe();
-
-
             User user = authenticatedUserService.loadCurrentUser();
-             recipe.setUser_id(user.getId());
+            if (user == null) {
+                // Handle the case where the user is not authenticated
+                return null;
+            }
+            recipe.setUser_id(user.getId());
+        } else {
+            recipe = recipeDAO.findById(form.getId());
+            if (recipe == null || !recipe.getUser_id().equals(authenticatedUserService.loadCurrentUser().getId())) {
+                // If the recipe doesn't exist or doesn't belong to the current user
+                return null;
+            }
         }
-            // set the incoming values to be saved to the database
-            recipe.setName(form.getName());
-            recipe.setDescription(form.getDescription());
-            recipe.setImage_url(form.getImage_url());
 
-        log.debug("Before saving recipe to the database");
-        recipe = recipeDAO.save(recipe);
-        log.debug("After saving recipe to the database. Recipe ID: " + recipe.getId());
+        recipe.setName(form.getName());
+        recipe.setDescription(form.getDescription());
+        recipe.setImage_url(form.getImage_url());
+        recipe.setCategory(form.getCategory());
         return recipeDAO.save(recipe);
-
-
     }
 
 
-        public List<Recipe> getAllRecipes() {
+
+    public List<Recipe> getAllRecipes() {
             return recipeDAO.findAll(); // Implement this method in your DAO
         }
 

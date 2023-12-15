@@ -15,7 +15,8 @@
 </section>
 
 <section class="pt-5 pb-5">
-     <form id="contact_form" name="contact_form" method="post" >
+     <form action="${pageContext.request.contextPath}/auth/contact/contactSubmit" id="contact_form" method="post">
+     <spring:csrfInput />
                 <div class="mb-3">
                   <label for="email">Email address</label>
                   <input type="email" required maxlength="50" class="form-control"

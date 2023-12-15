@@ -1,7 +1,8 @@
 <!-- Footer -->
 <footer class="text-center text-white" style="background-color: #3f51b5; position: fixed; bottom: 0; width: 100%">
     <!-- Grid container -->
-    <div class="container">
+
+    <div class="main-content">
         <!-- Section: Links -->
         <section class="mt-2">
             <!-- Grid row-->
@@ -48,20 +49,7 @@
 
         <hr class="my-2" />
 
-        <!-- Section: Text -->
-        <section class="mb-2">
-            <div class="row d-flex justify-content-center">
-                <div class="col-lg-8">
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt
-                        distinctio earum repellat quaerat voluptatibus placeat nam,
-                        commodi optio pariatur est quia magnam eum harum corrupti
-                        dicta, aliquam sequi voluptate quas.
-                    </p>
-                </div>
-            </div>
-        </section>
-        <!-- Section: Text -->
+
 
         <!-- Section: Social -->
         <section class="text-center mb-2">

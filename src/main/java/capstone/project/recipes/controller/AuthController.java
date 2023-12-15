@@ -9,6 +9,7 @@ import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Slf4j
 @Controller
+@Service
 public class AuthController {
 
     @Autowired
@@ -71,6 +73,7 @@ public class AuthController {
 
         return response;
     }
+
 
 
 }
