@@ -5,10 +5,8 @@
 
 <%@ include file="../include/header.jsp" %>
 
-
-
 <section>
-    <div class="bg-light2  pt-1 pb-1">
+    <div class="bg-light2 pt-1 pb-1">
         <div class="row1">
             <div class="col-12 text-center">
                 <h1 class="m-0">Recipe Details</h1>
@@ -18,8 +16,7 @@
 </section>
 
 <section>
-    <div class="content-flex-container"> <!-- Flexbox container -->
-
+    <div class="content-flex-container">
         <!-- Card Content -->
         <div class="card-container">
             <div class="card1">
@@ -28,8 +25,13 @@
                     <p class="card-text"><strong>Recipe ID:</strong> ${recipe.id}</p>
                     <p class="card-text"><strong>Description:</strong> ${recipe.description}</p>
                     <p class="card-text"><strong>Category:</strong> ${recipe.category}</p>
-                    <!-- Add more recipe details here as needed -->
-                     <a href="/recipe/${recipe.id}/addIngredient" class="btn btn-secondary">Add Ingredient</a>
+                     <h3>Ingredients</h3>
+                      <ul>
+                         <c:forEach items="${ingredients}" var="ingredient">
+                             <li>${ingredient.ingredient.name} - Measurement: ${ingredient.measurement}, Quantity: ${ingredient.quantity}</li>
+                            </c:forEach>
+                          </ul>
+                    <a href="/recipe/${recipe.id}/addIngredient" class="btn btn-secondary">Add Ingredient</a>
                 </div>
             </div>
         </div>
@@ -40,9 +42,9 @@
                 <img class="card-img-top" src="${recipe.image_url}" alt="Card image cap" style="max-width: 400px; height: 400px;">
             </div>
         </div>
-
-    </div>
 </section>
+
+<%@ include file="../include/footer.jsp" %>
 
 
 

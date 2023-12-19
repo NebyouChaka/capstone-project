@@ -4,24 +4,21 @@ import capstone.project.recipes.database.dao.IngredientDAO;
 import capstone.project.recipes.database.dao.RecipeIngredientDAO;
 import capstone.project.recipes.database.entity.Ingredient;
 import capstone.project.recipes.database.entity.RecipeIngredient;
+import capstone.project.recipes.formbean.RecipeIngredientFormBean;
 import capstone.project.recipes.service.RecipeIngredientService;
+import jakarta.validation.Valid;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 
 import java.util.List;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 
-@Slf4j // Add this annotation to enable Lombok-generated logger
-@Service
+@Slf4j
 @Controller
 @RequestMapping("/recipe")
 public class RecipeIngredientController {
@@ -32,36 +29,54 @@ public class RecipeIngredientController {
     @Autowired
     private RecipeIngredientDAO recipeIngredientDAO;
 
-    @GetMapping("/recipe/addIngredient")
+    @Autowired
+    private RecipeIngredientService recipeIngredientService;
+
+    @GetMapping("/addIngredient")
     public ModelAndView addIngredientToRecipe(@RequestParam("recipeId") Integer recipeId) {
-        ModelAndView response = new ModelAndView("recipe/ingredient");
-        log.debug("In create addIngredient with no args - log.debug");
-        log.info("In create addIngredient with no args - log.info");
+        ModelAndView modelAndView = new ModelAndView("recipe/addIngredient");
+        List<RecipeIngredient> currentIngredients = recipeIngredientDAO.findByRecipeId(recipeId);
+        List<Ingredient> allIngredients = ingredientDAO.findAll();
 
+        modelAndView.addObject("currentIngredients", currentIngredients);
+        modelAndView.addObject("allIngredients", allIngredients);
+        modelAndView.addObject("recipeId", recipeId);
 
-        List<RecipeIngredient> ingredients = recipeIngredientDAO.findByRecipeId(recipeId);
-
-        response.addObject("ingredients", ingredients);
-        response.addObject("recipeId", recipeId);
-
-        return response;
+        return modelAndView;
     }
 
-    @PostMapping("/recipe/addIngredientSubmit")
-    public ModelAndView addIngredientSubmit(@RequestParam("recipeId") Long recipeId,
-                                            @RequestParam("ingredientIds") List<Long> ingredientIds,
-                                            @RequestParam("measurement") String measurement) {
+    @PostMapping("/addIngredientSubmit")
+    public ModelAndView addIngredientSubmit(@RequestParam("recipeId") Integer recipeId,
+                                            @RequestParam("ingredientName") String[] ingredientNames,
+                                            @RequestParam("measurement") String[] measurements,
+                                            @RequestParam("quantity") Double[] quantities,
+                                            RedirectAttributes redirectAttributes) {
+        // Process each set of ingredient data
+        for (int i = 0; i < ingredientNames.length; i++) {
+            String ingredientName = ingredientNames[i];
+            String measurement = measurements[i];
+            Double quantity = quantities[i];
 
-        // Process the form submission here
-        // You can use the recipeId, ingredientIds, and measurement
-        // to add ingredients to the recipe
+            // Implement logic to process each ingredient
+            // Example: Check if ingredient exists, create if not, and then add to recipe
+            List<Ingredient> foundIngredients = ingredientDAO.findByName(ingredientName);
+            Ingredient ingredient;
+            if (foundIngredients.isEmpty()) {
+                // Create new Ingredient if it does not exist
+                ingredient = new Ingredient();
+                ingredient.setName(ingredientName);
+                ingredient = ingredientDAO.save(ingredient);
+            } else {
+                // Use the existing ingredient
+                ingredient = foundIngredients.get(0); // Assuming first match is taken
+            }
 
-        // Add your database insertion logic here
-        // ...
+            // Now add ingredient to the recipe
+            recipeIngredientService.addIngredientToRecipe(recipeId, ingredient.getId(), measurement, quantity);
+        }
 
-        ModelAndView response = new ModelAndView();
-        response.setViewName("redirect:/recipe/edit/" + recipeId + "?success=Ingredient(s) Added Successfully");
-
-        return response;
+        redirectAttributes.addFlashAttribute("success", "Ingredients added successfully!");
+        return new ModelAndView("redirect:/recipe/addIngredient?recipeId=" + recipeId);
     }
+
 }

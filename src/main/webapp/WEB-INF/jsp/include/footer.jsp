@@ -4,7 +4,7 @@
 
     <div class="main-content">
         <!-- Section: Links -->
-        <section class="mt-2">
+        <section class="mt-2" id="custom-margin-top">
             <!-- Grid row-->
             <div class="row text-center d-flex justify-content-center pt-2">
                 <!-- Grid column -->

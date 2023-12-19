@@ -17,6 +17,8 @@ public interface RecipeDAO extends JpaRepository<Recipe, Long> {
     List<Recipe> getRecipesByCategory(@Param("category") String category);
     List<Recipe> findAll();
 
+    @Query("SELECT r FROM Recipe r WHERE r.id = :id")
+    List<Recipe> findListById(@Param("id") Long id);
 
     Recipe findById(Integer id);
 }

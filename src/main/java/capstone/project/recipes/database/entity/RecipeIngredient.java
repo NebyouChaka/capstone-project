@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Set;
+
 @Getter
 @Setter
 @Entity
@@ -15,25 +17,20 @@ public class RecipeIngredient {
     @Column(name = "id")
     private Integer id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "recipe_id")
     private Recipe recipe;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ingredient_id")
     private Ingredient ingredient;
-
-    //@Column(name = "recipe_id")
-    //rivate String recipe_id;
-
-    //@Column(name = "ingredient_id")
-    //private String ingredient_id;
 
     @Column(name = "measurement")
     private String measurement;
 
     @Column(name = "quantity")
     private Double quantity;
+
 
 
 }

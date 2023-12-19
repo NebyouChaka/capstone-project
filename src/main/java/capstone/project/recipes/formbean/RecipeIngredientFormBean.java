@@ -10,7 +10,7 @@ public class RecipeIngredientFormBean {
 
 
     private Integer recipeId;
-    private Integer ingredientId;
+    private Integer ingredient_Id;
     private String measurement;
     private Double quantity;
 

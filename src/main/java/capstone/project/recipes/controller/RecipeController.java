@@ -2,7 +2,9 @@ package capstone.project.recipes.controller;
 
 
 import capstone.project.recipes.database.dao.RecipeDAO;
+import capstone.project.recipes.database.dao.RecipeIngredientDAO;
 import capstone.project.recipes.database.entity.Recipe;
+import capstone.project.recipes.database.entity.RecipeIngredient;
 import capstone.project.recipes.database.entity.User;
 import capstone.project.recipes.formbean.CreateRecipeFormBean;
 import capstone.project.recipes.security.AuthenticatedUserService;
@@ -10,14 +12,19 @@ import capstone.project.recipes.service.RecipeService;
 import io.micrometer.common.util.StringUtils;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 import java.util.List;
 
 @Slf4j
@@ -32,6 +39,8 @@ public class RecipeController {
     @Autowired
     private AuthenticatedUserService authenticatedUserService;
 
+    @Autowired
+    private RecipeIngredientDAO recipeIngredientDAO;
 
     @GetMapping("/recipe/search")
     public ModelAndView search(@RequestParam(required = false) String nameSearch) {
@@ -67,6 +76,8 @@ public class RecipeController {
         // Fetch the recipe
         Recipe recipe = recipeDAO.findById(recipeId);
 
+        log.debug("CurrentUser: {}", currentUser);
+        log.debug("Recipe: {}", recipe);
         // Check if the recipe exists and belongs to the current user
         if (recipe == null || currentUser == null || !recipe.getUser_id().equals(currentUser.getId())) {
             log.warn("Unauthorized access attempt for recipe ID: " + recipeId);
@@ -122,23 +133,27 @@ public class RecipeController {
 
         return response;
     }
+
+
     @RequestMapping("/recipe/detail")
     public ModelAndView viewRecipeDetail(@RequestParam Integer id) {
         ModelAndView response = new ModelAndView("recipe/detail");
-
         Recipe recipe = recipeDAO.findById(id);
 
         if (recipe == null) {
             log.warn("Recipe with ID " + id + " was not found");
-
             response.setViewName("redirect:/error/404");
             return response;
         }
 
-        response.addObject("recipe", recipe);
+        // Fetch ingredients for the recipe
+        List<RecipeIngredient> ingredients = recipeIngredientDAO.findByRecipeId(id);
 
+        response.addObject("recipe", recipe);
+        response.addObject("ingredients", ingredients); // Add ingredients to the model
         return response;
     }
+
     @GetMapping("/recipe/recipes")
     public ModelAndView viewAllRecipes() {
         List<Recipe> recipes = recipeService.getAllRecipes();
@@ -153,7 +168,7 @@ public class RecipeController {
 
         ModelAndView modelAndView = new ModelAndView("recipes");
         modelAndView.addObject("recipes", recipes);
-        modelAndView.addObject("category", category); // Add the category to the model
+        modelAndView.addObject("category", category);
         return modelAndView;
     }
     @GetMapping("/recipe/delete/{recipeId}")
@@ -168,8 +183,46 @@ public class RecipeController {
             log.warn("Recipe with id " + recipeId + " was not found.");
         }
 
-        return "redirect:/admin/index"; // Redirecting to the admin page or wherever appropriate
+        return "redirect:/admin/index";
     }
+    @GetMapping("/recipe/fileupload")
+    public ModelAndView recipeFileUpload(@RequestParam Long id) {
+        ModelAndView response = new ModelAndView("recipe/fileupload");
+
+        Recipe recipe = recipeDAO.findById(id).orElse(null);
+        response.addObject("recipe", recipe);
+
+        log.info("In fileupload with no Args");
+        return response;
+    }
+
+    @PostMapping("/recipe/fileUploadSubmit")
+    public ModelAndView recipeFileUploadSubmit(@RequestParam("file") MultipartFile file,
+                                               @RequestParam Long id) {
+        ModelAndView response = new ModelAndView("redirect:/recipe/detail?id=" + id);
+
+        log.info("Filename = " + file.getOriginalFilename());
+        log.info("Size     = " + file.getSize());
+        log.info("Type     = " + file.getContentType());
+
+        // Get the file and save it somewhere
+        File f = new File("./src/main/webapp/pub/images/" + file.getOriginalFilename());
+        try (OutputStream outputStream = new FileOutputStream(f.getAbsolutePath())) {
+            IOUtils.copy(file.getInputStream(), outputStream);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+        Recipe recipe = recipeDAO.findById(id).orElse(null);
+        if (recipe != null) {
+            recipe.setImage_url("/pub/images/" + file.getOriginalFilename());
+            recipeDAO.save(recipe);
+        }
+
+        return response;
+    }
+
 
 }
 

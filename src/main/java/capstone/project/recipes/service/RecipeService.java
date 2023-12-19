@@ -17,6 +17,9 @@ import java.util.Optional;
 public class RecipeService {
 
     @Autowired
+    private UserService.FileStorageService fileStorageService;
+
+    @Autowired
     private RecipeDAO recipeDAO;
 
     @Autowired

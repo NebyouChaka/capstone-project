@@ -24,11 +24,7 @@
 }
 
 /* Centering the form specifically */
-.form-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+
 /* Center the text in the header */
 .row1 {
     display: flex;
@@ -83,8 +79,32 @@
     margin-left: 10px; /* Optional: Adds margin to the left of the image */
 }
 
+ #addIngredientForm {
+            text-align: left;
+            margin: auto;
+            max-width: 600px; /* Adjust as needed */
+            padding: 20px;
+            border: 1px solid #ddd; /* Optional border */
+            border-radius: 4px; /* Optional rounded corners */
+            background-color: #f9f9f9; /* Light background */
+        }
+        #addIngredientForm h3 {
+            color: #333;
+        }
+        #addIngredientForm ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        #addIngredientForm li {
+            margin-bottom: 10px;
+        }
+        #addIngredientForm .submit-button {
+            display: block;
+            margin: 20px auto;
+        }
+#custom-margin-top {
+    margin-top: 100px; /* Adjust the value as needed */
 }
-
 
 
 
