@@ -49,9 +49,10 @@
                                 <td>${recipeItem.name}</td>
                                 <td>${recipeItem.description}</td>
                                 <td>${recipeItem.category}</td>
-                                <td><img src="${recipeItem.image_url}" style="max-width:100px"></td>
+                                <td><img src="${recipe.image_url}" style="max-width:100px"></td>
                                 <td><a href="/recipe/detail?id=${recipeItem.id}">Detail</a></td>
-                                <td><a href="${pageContext.request.contextPath}/recipe/edit?id=${recipeItem.id}">Edit</a></td>
+                                <td><a href="/recipe/edit?id=${recipeItem.id}">Edit</a></td>
+
                             </tr>
                         </c:forEach>
                     </tbody>

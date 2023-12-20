@@ -27,17 +27,25 @@
 <div class="container mt-5">
     <h1>Recipes</h1>
 
-    <div class="recipes-container1">
-       <c:forEach items="${recipes}" var="recipe">
-           <div class="recipe-item">
-               <a href="${pageContext.request.contextPath}/recipe/detail?id=${recipe.id}">
-                   <img src="${recipe.image_url}" alt="Image of ${recipe.name}" class="img-fluid" style="height: 200px;">
-                   <h3>${recipe.name}</h3>
-               </a>
-           </div>
-       </c:forEach>
-    </div>
-</div>
+   <div class="container mt-5">
+       <h1>Recipes</h1>
+       <div class="row">
+           <c:forEach items="${recipes}" var="recipe">
+               <div class="col-md-3 mb-4">
+                   <div class="recipe-item">
+                       <a href="${pageContext.request.contextPath}/recipe/detail?id=${recipe.id}">
+                           <img src="${recipe.image_url}" alt="Image of ${recipe.name}" class="img-fluid" style="height: 200px;">
+                           <h3>${recipe.name}</h3>
+                       </a>
+                       <form action="${pageContext.request.contextPath}/addFavorite" method="post">
+                           <input type="hidden" name="recipeId" value="${recipe.id}">
+                           <button type="submit">Add to Favorites</button>
+                       </form>
+                   </div>
+               </div>
+           </c:forEach>
+       </div>
+   </div>
 <div class="spacer"></div>
 
-
+<script src="${pageContext.request.contextPath}/js/myScript.js"></script>

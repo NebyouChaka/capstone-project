@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ include file="../include/header.jsp" %>
+<%@ include file="../include/header.jsp" >
 
 <div class="container mt-5">
     <h1>Recipe Details</h1>
@@ -18,4 +18,4 @@
     <a href="/recipes" class="btn btn-primary mt-3">Back to Recipes</a>
 </div>
 
-<%@ include file="../include/footer.jsp" %>
+<%@ include file="../include/footer.jsp" >

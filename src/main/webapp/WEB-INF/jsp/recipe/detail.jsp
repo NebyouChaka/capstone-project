@@ -3,7 +3,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
-<%@ include file="../include/header.jsp" %>
+<%@ include file="../include/header.jsp">
 
 <section>
     <div class="bg-light2 pt-1 pb-1">
@@ -18,23 +18,23 @@
 <section>
     <div class="content-flex-container">
         <!-- Card Content -->
-        <div class="card-container">
-            <div class="card1">
-                <div class="card-body1">
-                    <h5 class="card-title">${recipe.name}</h5>
-                    <p class="card-text"><strong>Recipe ID:</strong> ${recipe.id}</p>
-                    <p class="card-text"><strong>Description:</strong> ${recipe.description}</p>
-                    <p class="card-text"><strong>Category:</strong> ${recipe.category}</p>
-                     <h3>Ingredients</h3>
-                      <ul>
-                         <c:forEach items="${ingredients}" var="ingredient">
-                             <li>${ingredient.ingredient.name} - Measurement: ${ingredient.measurement}, Quantity: ${ingredient.quantity}</li>
-                            </c:forEach>
-                          </ul>
-                    <a href="/recipe/${recipe.id}/addIngredient" class="btn btn-secondary">Add Ingredient</a>
-                </div>
-            </div>
-        </div>
+          <div class="card-container">
+                  <div class="card1">
+                      <div class="card-body1">
+                          <h5 class="card-title">${recipe.name}</h5>
+                          <p class="card-text"><strong>Recipe ID:</strong> ${recipe.id}</p>
+                          <p class="card-text"><strong>Description:</strong> ${recipe.description}</p>
+                          <p class="card-text"><strong>Category:</strong> ${recipe.category}</p>
+                           <h3>Ingredients</h3>
+                            <ul>
+                               <c:forEach items="${ingredients}" var="ingredient">
+                                   <li>${ingredient.ingredient.name} - Measurement: ${ingredient.measurement}, Quantity: ${ingredient.quantity}</li>
+                                  </c:forEach>
+                                </ul>
+                          <a href="/recipe/${recipe.id}/addIngredient" class="btn btn-secondary">Add Ingredient</a>
+                      </div>
+                  </div>
+              </div>
 
         <!-- Image Container -->
         <div class="image-container">
@@ -53,4 +53,4 @@
 
 
 
-<%@ include file="../include/footer.jsp" %>
+<%@ include file="../include/footer.jsp">

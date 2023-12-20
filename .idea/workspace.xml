@@ -6,30 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="ec6004cf-3aba-4f9a-8a55-48cf3306c693" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/controller/IngredientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/controller/IngredientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/controller/RecipeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/controller/RecipeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/controller/RecipeIngredientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/controller/RecipeIngredientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/database/dao/IngredientDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/database/dao/IngredientDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/database/dao/RecipeDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/database/dao/RecipeDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/database/dao/RecipeIngredientDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/database/dao/RecipeIngredientDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/database/entity/Ingredient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/database/entity/Ingredient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/database/entity/Recipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/database/entity/Recipe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/database/entity/RecipeIngredient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/database/entity/RecipeIngredient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/database/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/database/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/formbean/RecipeIngredientFormBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/formbean/RecipeIngredientFormBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/service/IngredientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/service/IngredientService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/service/RecipeIngredientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/service/RecipeIngredientService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/service/RecipeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/service/RecipeService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/include/footer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/include/footer.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/recipe/addingredient.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/recipe/addIngredient.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/recipe/Recipes.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/recipe/Recipes.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/recipe/detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/recipe/detail.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/recipe/ingredient.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/recipe/ingredient.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/recipe/search.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/recipe/search.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/pub/CSS/global-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pub/CSS/global-style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/capstone/project/recipes/RecipesApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/capstone/project/recipes/RecipesApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/pub/js/myScript.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pub/js/myScript.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -106,7 +106,16 @@
     margin-top: 100px; /* Adjust the value as needed */
 }
 
+  .btn-action {
+        margin-right: 30px; /* Add a gap between buttons */
+        margin-bottom: 20px;
+        width: 100px;
+    }
 
+    .btn-action:hover {
+        background-color: #FF5733; /* Change background color on hover */
+        color: #ffffff; /* Change text color on hover */
+    }
 
 
 

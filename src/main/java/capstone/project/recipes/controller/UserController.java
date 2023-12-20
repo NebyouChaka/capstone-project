@@ -18,25 +18,6 @@ import java.security.Principal;
 public class UserController {
 
 
-    @Autowired
-    private UserService.FileStorageService fileStorageService;
 
-    @Autowired
-    private UserDAO userDao;
 
-    @PostMapping("/uploadProfilePhoto")
-    public String uploadProfilePhoto(@RequestParam("file") MultipartFile file, Principal principal, RedirectAttributes redirectAttributes) {
-        String filename = fileStorageService.store(file);
-        User user = userDao.findByEmailIgnoreCase(principal.getName());
-        if (user != null) {
-            user.setProfilePhoto(filename);
-            userDao.save(user);
-            redirectAttributes.addFlashAttribute("message", "Profile photo uploaded successfully!");
-        } else {
-            redirectAttributes.addFlashAttribute("message", "Failed to upload profile photo.");
-        }
-        return "redirect:/user/profile";
-    }
-
-    // Other controller methods...
 }
