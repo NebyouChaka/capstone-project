@@ -54,15 +54,19 @@ public class RecipeService {
 
 
     public List<Recipe> getAllRecipes() {
-            return recipeDAO.findAll(); // Implement this method in your DAO
+            return recipeDAO.findAll();
         }
 
         public List<Recipe> getRecipesByCategory(String category) {
-            return recipeDAO.getRecipesByCategory(category); // Implement this method in your DAO
+            return recipeDAO.getRecipesByCategory(category);
 
         }
     public Recipe findById(int recipeId) {
         return recipeDAO.findById(recipeId);
     }
 
+    public void deleteRecipe(Long recipeId) {
+        // Logic to delete the recipe
+        recipeDAO.deleteById(recipeId);
+    }
 }

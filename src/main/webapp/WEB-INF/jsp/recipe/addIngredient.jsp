@@ -1,6 +1,8 @@
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/pub/CSS/global-style.css">
 <jsp:include page="../include/header.jsp"/>
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/pub/css/global-style.css">
+
 
 <h2 class="text-center">Add Ingredients</h2>
 
@@ -12,7 +14,7 @@
             <!-- Ingredient input fields will be added here by JavaScript -->
         </div>
 
-        <button type="button" onclick="addIngredientInput()">Add More Ingredients</button>
+        <button type="button" id="addIngredientButton">Add More Ingredients</button>
         <button type="submit" class="btn btn-primary">Submit Ingredients</button>
     </form>
 </div>
@@ -42,7 +44,5 @@
         </tbody>
     </table>
 </div>
-
 <script type="text/javascript" src="${pageContext.request.contextPath}/pub/js/myScript.js"></script>
-
 <jsp:include page="../include/footer.jsp"/>

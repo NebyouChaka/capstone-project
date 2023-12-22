@@ -16,6 +16,7 @@ import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
@@ -26,6 +27,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.util.List;
+import java.util.Optional;
 
 @Slf4j
 @Controller
@@ -66,37 +68,33 @@ public class RecipeController {
     }
 
 
+    // In RecipeController.java
+
     @GetMapping("/recipe/edit/{recipeId}")
     @PreAuthorize("isAuthenticated()")
     public ModelAndView editRecipe(@PathVariable int recipeId) {
-        // Fetch the currently logged-in user
-
         User currentUser = authenticatedUserService.loadCurrentUser();
+        Optional<Recipe> recipeOptional = recipeDAO.findById((long) recipeId);
 
-        // Fetch the recipe
-        Recipe recipe = recipeDAO.findById(recipeId);
-
-        log.debug("CurrentUser: {}", currentUser);
-        log.debug("Recipe: {}", recipe);
-        // Check if the recipe exists and belongs to the current user
-        if (recipe == null || currentUser == null || !recipe.getUser_id().equals(currentUser.getId())) {
+        if (!recipeOptional.isPresent() || currentUser == null || !recipeOptional.get().getUser_id().equals(currentUser.getId())) {
             log.warn("Unauthorized access attempt for recipe ID: " + recipeId);
-            return new ModelAndView("redirect:/error/404"); // Redirect to an error or access denied page
+            return new ModelAndView("redirect:/error/404");
         }
 
-        // Populate the form for editing
+        Recipe recipe = recipeOptional.get();
         CreateRecipeFormBean form = new CreateRecipeFormBean();
+        // Populate the form with recipe data
         form.setId(recipe.getId());
         form.setName(recipe.getName());
         form.setDescription(recipe.getDescription());
         form.setImage_url(recipe.getImage_url());
         form.setCategory(recipe.getCategory());
-        // Populate other fields as necessary
 
         ModelAndView response = new ModelAndView("recipe/create");
         response.addObject("form", form);
         return response;
     }
+
 
     @GetMapping("/recipe/create")
     public ModelAndView createRecipe() {
@@ -154,22 +152,13 @@ public class RecipeController {
         return response;
     }
 
-    @GetMapping("/recipe/recipes")
-    public ModelAndView viewAllRecipes() {
-        List<Recipe> recipes = recipeService.getAllRecipes();
-        ModelAndView modelAndView = new ModelAndView("recipes");
-        modelAndView.addObject("recipes", recipes);
-        return modelAndView;
-    }
 
-    @GetMapping("/recipe/recipes/{category}")
-    public ModelAndView viewRecipesByCategory(@PathVariable String category) {
+    @GetMapping("/recipe/category/{category}")
+    public String viewRecipesByCategory(@PathVariable String category, Model model) {
         List<Recipe> recipes = recipeService.getRecipesByCategory(category);
-
-        ModelAndView modelAndView = new ModelAndView("recipes");
-        modelAndView.addObject("recipes", recipes);
-        modelAndView.addObject("category", category);
-        return modelAndView;
+        model.addAttribute("recipes", recipes);
+        model.addAttribute("category", category);
+        return "recipe/category"; // Return the path to your category.jsp
     }
     @GetMapping("/recipe/delete/{recipeId}")
     public String deleteRecipe(@PathVariable int recipeId) {
@@ -185,43 +174,9 @@ public class RecipeController {
 
         return "redirect:/admin/index";
     }
-    @GetMapping("/recipe/fileupload")
-    public ModelAndView recipeFileUpload(@RequestParam Long id) {
-        ModelAndView response = new ModelAndView("recipe/fileupload");
-
-        Recipe recipe = recipeDAO.findById(id).orElse(null);
-        response.addObject("recipe", recipe);
-
-        log.info("In fileupload with no Args");
-        return response;
-    }
-
-    @PostMapping("/recipe/fileUploadSubmit")
-    public ModelAndView recipeFileUploadSubmit(@RequestParam("file") MultipartFile file,
-                                               @RequestParam Long id) {
-        ModelAndView response = new ModelAndView("redirect:/recipe/detail?id=" + id);
-
-        log.info("Filename = " + file.getOriginalFilename());
-        log.info("Size     = " + file.getSize());
-        log.info("Type     = " + file.getContentType());
-
-        // Get the file and save it somewhere
-        File f = new File("./src/main/webapp/pub/images/" + file.getOriginalFilename());
-        try (OutputStream outputStream = new FileOutputStream(f.getAbsolutePath())) {
-            IOUtils.copy(file.getInputStream(), outputStream);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
 
 
-        Recipe recipe = recipeDAO.findById(id).orElse(null);
-        if (recipe != null) {
-            recipe.setImage_url("/pub/images/" + file.getOriginalFilename());
-            recipeDAO.save(recipe);
-        }
 
-        return response;
-    }
 
 
 }

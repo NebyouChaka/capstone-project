@@ -24,8 +24,8 @@
                        <td>${recipe.description}</td>
                        <td><img src="${recipe.image_url}" style="height: 50px; width: auto;"></td>
                        <td>
-                             <a href="${pageContext.request.contextPath}/admin/recipe/edit/${recipe.id}" class="btn btn-custom-edit btn-sm">Edit</a>
-                             <a href="${pageContext.request.contextPath}/admin/recipe/delete/${recipe.id}" class="btn btn-custom-delete btn-sm" onclick="return confirm('Are you sure you want to delete this recipe?')">Delete</a>
+                             <a href="${pageContext.request.contextPath}/recipe/edit/${recipe.id}" class="btn btn-custom-edit btn-sm">Edit</a>
+                             <a href="${pageContext.request.contextPath}/recipe/delete/${recipe.id}" class="btn btn-custom-delete btn-sm" onclick="return confirm('Are you sure you want to delete this recipe?')">Delete</a>
                            <!-- Add Update button if necessary -->
                        </td>
                    </tr>
@@ -49,8 +49,7 @@
                     <td>${user.id}</td>
                     <td>${user.email}</td>
                     <td>
-                        <a href="${pageContext.request.contextPath}/admin/user/edit/${user.id}" class="btn btn-custom-edit btn-sm">Edit</a>
-                        <a href="${pageContext.request.contextPath}/admin/user/delete/${user.id}"class="btn btn-custom-delete btn-sm" onclick="return confirm('Are you sure you want to delete this recipe?')">Delete</a>
+                        <a href="${pageContext.request.contextPath}/user/delete/${user.id}" class="btn btn-custom-delete btn-sm" onclick="return confirm('Are you sure you want to delete this user?')">Delete</a>
                         <!-- Add Update button if necessary -->
                     </td>
                 </tr>

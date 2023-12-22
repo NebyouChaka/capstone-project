@@ -40,7 +40,9 @@ public class UserService {
     public List<User> getAllUsers() {
         return userDao.findAll();
     }
-
-
+    public void deleteUser(Long userId) {
+        // Logic to delete the user
+        userDao.deleteById(userId);
+    }
 
 }

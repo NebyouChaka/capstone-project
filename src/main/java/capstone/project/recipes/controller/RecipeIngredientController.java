@@ -32,9 +32,11 @@ public class RecipeIngredientController {
     @Autowired
     private RecipeIngredientService recipeIngredientService;
 
-    @GetMapping("/recipe/addIngredient")
+    // In RecipeIngredientController.java
+
+    @GetMapping("/addIngredient")
     public ModelAndView addIngredientToRecipe(@RequestParam("recipeId") Integer recipeId) {
-        ModelAndView modelAndView = new ModelAndView("addIngredient");
+        ModelAndView modelAndView = new ModelAndView("recipe/addIngredient"); // Ensure this matches your JSP file name
         List<RecipeIngredient> currentIngredients = recipeIngredientDAO.findByRecipeId(recipeId);
         List<Ingredient> allIngredients = ingredientDAO.findAll();
 
@@ -44,6 +46,7 @@ public class RecipeIngredientController {
 
         return modelAndView;
     }
+
 
     @PostMapping("/addIngredientSubmit")
     public ModelAndView addIngredientSubmit(@RequestParam("recipeId") Integer recipeId,

@@ -1,5 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/pub/CSS/global-style.css">
 <jsp:include page="../include/header.jsp"/>
+
+
 
 <div class="container mt-5 mb-4"> <!-- Added mb-4 to add margin at the bottom -->
     <form action="/recipe/search" method="GET">
@@ -51,7 +54,7 @@
                                 <td>${recipeItem.category}</td>
                                 <td><img src="${recipe.image_url}" style="max-width:100px"></td>
                                 <td><a href="/recipe/detail?id=${recipeItem.id}">Detail</a></td>
-                                <td><a href="/recipe/edit?id=${recipeItem.id}">Edit</a></td>
+                                <td><a href="/recipe/edit/${recipeItem.id}">Edit</a></td>
 
                             </tr>
                         </c:forEach>
@@ -62,5 +65,8 @@
     </section>
 </c:if>
 
+<div class="scrollable-content"> <!-- Add this div for scrollable content -->
+    <!-- Empty content here -->
+</div>
 
 <jsp:include page="../include/footer.jsp"/>

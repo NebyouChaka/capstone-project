@@ -11,6 +11,6 @@ import java.util.List;
 public interface UserDAO extends JpaRepository<User, Long> {
 
     public User findByEmailIgnoreCase(String email);
-
+List<User> findById(Integer id);
 
 }
