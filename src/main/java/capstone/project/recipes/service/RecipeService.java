@@ -8,7 +8,13 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.nio.file.Files;
+import java.util.UUID;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,6 +30,8 @@ public class RecipeService {
 
     @Autowired
     private AuthenticatedUserService authenticatedUserService;
+
+    private final Path rootLocation = Paths.get("./src/main/webapp/pub/images/");
 
     public Recipe createRecipe(CreateRecipeFormBean form) {
         Recipe recipe;
@@ -69,4 +77,5 @@ public class RecipeService {
         // Logic to delete the recipe
         recipeDAO.deleteById(recipeId);
     }
+
 }

@@ -22,16 +22,16 @@
        <div class="mx-auto"  id="navbarNav">
            <ul class="navbar-nav justify-content-center">
           <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Recipes
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="${pageContext.request.contextPath}/recipe/recipes">All Recipes</a>
-                  <c:forEach items="${categories}" var="category">
-                      <a class="dropdown-item" href="${pageContext.request.contextPath}/recipe/recipes/${category.toLowerCase()}">${category}</a>
-                  </c:forEach>
-              </div>
-          </li>
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                   Recipes
+                   </a>
+                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                             <li><a class="dropdown-item" href="/recipe/category/Breakfast">Breakfast</a></li>
+                             <li><a class="dropdown-item" href="/recipe/category/Lunch">Lunch</a></li>
+                             <li><a class="dropdown-item" href="/recipe/category/Dinner">Dinner</a></li>
+                             <li><a class="dropdown-item" href="/recipe/category/All">All Recipes</a></li>
+                         </ul>
+                     </li>
                <li class="nav-item">
                    <a class="nav-link" href="/recipe/create">Create recipes</a>
                </li>
@@ -59,7 +59,7 @@
                        <a class="nav-link" href="/auth/logout">Logout</a>
                    </li>
                     <li class="nav-item">
-                       <img src="${pageContext.request.contextPath}${principal.profilePhoto}" alt="Profile Photo" class="profile-photo">
+                       <img src="${pageContext.request.contextPath}${user.profilePhoto}" alt="Profile Photo" class="profile-photo">
                      </li>
                      <li class="nav-item">
                           <a class="nav-link" href="/favorites">My Favorites</a>

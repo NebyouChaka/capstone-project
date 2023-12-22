@@ -4,41 +4,40 @@
 <jsp:include page="../include/header.jsp"/>
 
 
-    <section>
+<section>
     <div class="container mt-5 mb-4">
         <h2>Recipes in Category: ${category}</h2>
-    </section>
-
-    <section>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Category</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Image</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>${category}</td> <!-- Category column -->
-                <c:forEach items="${recipes}" var="recipe">
-                    <td>${recipe.name}</td>
-                    <td>${recipe.description}</td>
-                    <td><img src="${recipe.image_url}" style="height: 50px; width: auto;"></td>
-                </c:forEach>
-            </tr>
-        </tbody>
-    </table>
-</div>
-<div></div>
-<div></div>
-<div></div>
-<div></div>
-<div></div>
-<div></div>
+    </div>
 </section>
+
+<div class="content-wrapper">
+    <section>
+         <table class="table">
+             <thead>
+                      <tr>
+                        <th>Category</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Image</th>
+                        <th>Details</th>
+                      </tr>
+            </thead>
+            <tbody>
+                <c:forEach items="${recipes}" var="recipe">
+                      <tr>
+                        <td>${category}</td> <!-- Category column -->
+                        <td>${recipe.name}</td>
+                        <td>${recipe.description}</td>
+                        <td><img src="${recipe.image_url}" alt="Image of ${recipe.name}" style="height: 100px; width: 100px;"></td>
+                         <td>
+                         <a href="/recipe/detail?id=${recipe.id}" class="btn btn-primary">Details</a>
+                         </td>
+                    </tr>
+                 </c:forEach>
+            </tbody>
+         </table>
+    </div>
+</div>
 
 
 <jsp:include page="../include/footer.jsp"/>

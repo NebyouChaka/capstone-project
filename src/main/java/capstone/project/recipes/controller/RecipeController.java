@@ -155,7 +155,14 @@ public class RecipeController {
 
     @GetMapping("/recipe/category/{category}")
     public String viewRecipesByCategory(@PathVariable String category, Model model) {
-        List<Recipe> recipes = recipeService.getRecipesByCategory(category);
+        List<Recipe> recipes;
+        if ("All".equalsIgnoreCase(category)) {
+            // Fetch all recipes if the category is 'All'
+            recipes = recipeDAO.findAll(); // Assuming findAll() fetches all recipes
+        } else {
+            // Fetch recipes for a specific category
+            recipes = recipeDAO.getRecipesByCategory(category);
+        }
         model.addAttribute("recipes", recipes);
         model.addAttribute("category", category);
         return "recipe/category"; // Return the path to your category.jsp
