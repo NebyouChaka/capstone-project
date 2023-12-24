@@ -3,6 +3,9 @@
      adding: 0;
     box-sizing: border-box;
 }
+html {
+    height: 100%;
+}
 body::before {
     content: "";
     background-image: url('/pub/images/foods_icon.jpg');
@@ -15,6 +18,10 @@ body::before {
     right: 0;
     bottom: 0;
     z-index: -1; /* Place the pseudo-element behind other content */
+}
+h2 {
+    margin: 150px;
+    font-size: 80px;
 }
 h4{
     color: black;
@@ -77,8 +84,8 @@ h4{
 }
 
 .recipe-item img {
-    width: 300px;
-    height:300px;
+    width: 100%; /* Make images responsive and fill screen width */
+    height: auto;
     display: block;
     transition: transform 0.3s ease;
 }
@@ -135,11 +142,25 @@ a  {
     flex: 1; /* Allows the card to grow as needed */
     margin-right: 10px; /* Optional: Adds margin to the right of the card */
 }
-
-.image-container {
-    flex: 1; /* Allows the image container to grow as needed */
-    margin-left: 10px; /* Optional: Adds margin to the left of the image */
+.fixed-height-image {
+    height: 400px; /* Set the fixed height for all images (adjust as needed) */
+    width: 400; /* Automatically calculate width to maintain aspect ratio */
+    object-fit: cover; /* Ensure the image covers the fixed height container */
 }
+.image-container {
+    height: 400px; /* Set the desired fixed height for the image container */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.image-container img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+}
+
 
 #addIngredientForm {
      text-align: left;
@@ -205,12 +226,14 @@ a {
 }
 .pg-footer {
   font-family: 'Roboto', sans-serif;
+  flex-grow: 1;
 }
 
 
 .footer {
     background-color: #004658;
     color: #fff;
+    flex-shrink: 0;
 }
 .footer-wave-svg {
     background-color: transparent;

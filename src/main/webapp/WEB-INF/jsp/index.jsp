@@ -29,25 +29,30 @@
         </div>
     </div>
 
-    <div class="container mt-5">
-        <h1>Recipes</h1>
-        <div class="row">
-            <c:forEach items="${recipes}" var="recipe">
-                <div class="col-md-3 mb-4">
-                    <div class="recipe-item">
-                        <a href="${pageContext.request.contextPath}/recipe/detail?id=${recipe.id}">
-                            <img src="${recipe.image_url}" alt="Image of ${recipe.name}" class="img-fluid" style="height: 200px;">
-                            <h4>${recipe.name}</h4>
-                        </a>
-                        <form action="${pageContext.request.contextPath}/addFavorite" method="post">
-                            <input type="hidden" name="recipeId" value="${recipe.id}">
-                            <button type="submit">Add to Favorites</button>
-                        </form>
-                    </div>
+<div class="container-fluid mt-5">
+    <h1>Recipes</h1>
+    <div class="row">
+        <c:forEach items="${recipes}" var="recipe">
+            <div class="col-md-3 mb-4">
+                <div class="recipe-item">
+                    <a href="${pageContext.request.contextPath}/recipe/detail?id=${recipe.id}">
+                        <div class="image-container">
+                            <img src="${recipe.image_url}" alt="Image of ${recipe.name}" class="img-fluid">
+                        </div>
+                        <h4>${recipe.name}</h4>
+                    </a>
+                    <form action="${pageContext.request.contextPath}/addFavorite" method="post">
+                        <input type="hidden" name="recipeId" value="${recipe.id}">
+                        <button type="submit">Add to Favorites</button>
+                    </form>
                 </div>
-            </c:forEach>
-        </div>
+            </div>
+        </c:forEach>
     </div>
+</div>
+
+
+
 
     <script src="${pageContext.request.contextPath}/js/myScript.js"></script>
 </div> <!-- Close the scrollable-content div -->

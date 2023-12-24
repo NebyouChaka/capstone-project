@@ -18,7 +18,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-6">
-                <form method="get" action="/auth/registerSubmit" enctype="multipart/form-data">
+                <form method="post" action="/auth/registerSubmit" enctype="multipart/form-data">
                     <div class="mt-3">
                         <label for="email" class="form-label">Email</label>
                         <input type="text" class="form-control" id="email" name="email" aria-describedby="emailHelp" value="${form.email}">

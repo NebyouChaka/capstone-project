@@ -13,7 +13,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-custom">
+<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-custom fixed-top">
     <div class="container-fluid">
         <a class="navbar-brand " href="/">The Recipes</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,7 +59,9 @@
                        <a class="nav-link" href="/auth/logout">Logout</a>
                    </li>
                     <li class="nav-item">
-                       <img src="${pageContext.request.contextPath}${user.profilePhoto}" alt="Profile Photo" class="profile-photo">
+
+                          <img src="${pageContext.request.contextPath}${user.profilePhoto}" alt="Profile Photo" class="profile-photo">
+
                      </li>
                      <li class="nav-item">
                           <a class="nav-link" href="/favorites">My Favorites</a>

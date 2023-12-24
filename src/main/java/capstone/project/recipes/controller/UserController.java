@@ -5,7 +5,8 @@ import capstone.project.recipes.database.dao.UserDAO;
 import capstone.project.recipes.database.entity.Recipe;
 import capstone.project.recipes.database.entity.User;
 import capstone.project.recipes.service.UserService;
-import groovy.util.logging.Slf4j;
+
+import lombok.extern.slf4j.Slf4j;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,7 +26,7 @@ import java.util.UUID;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-
+@Slf4j
 @Controller
 @RequestMapping("/user")
 public class UserController {

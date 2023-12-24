@@ -1,5 +1,6 @@
-package capstone.project.recipes.database.dao;
+package capstone.project.recipes.controller;
 
+import capstone.project.recipes.database.dao.UserDAO;
 import capstone.project.recipes.database.entity.User;
 import capstone.project.recipes.formbean.RegisterUserFormBean;
 import capstone.project.recipes.security.AuthenticatedUserService;
@@ -14,6 +15,15 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 
 @Slf4j
 @Controller
@@ -22,6 +32,9 @@ public class AuthController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private UserDAO userDAO;
 
     @Autowired
     private AuthenticatedUserService authenticatedUserService;
@@ -43,37 +56,65 @@ public class AuthController {
         return response;
     }
 
-    @GetMapping("/auth/registerSubmit")
-    public ModelAndView registerSubmit(@Valid RegisterUserFormBean form, BindingResult bindingResult, HttpSession session) {
+    @PostMapping("/auth/registerSubmit")
+    public ModelAndView registerSubmit(@Valid RegisterUserFormBean form,
+                                       @RequestParam("profilePhoto") MultipartFile profilePhoto,
+                                       BindingResult bindingResult,
+                                       HttpSession session) {
+        ModelAndView response = new ModelAndView();
+
         if (bindingResult.hasErrors()) {
-            log.info("######################### In register user - has errors #########################");
-            ModelAndView response = new ModelAndView("auth/register");
-
-            for (ObjectError error : bindingResult.getAllErrors()) {
-                log.info("error: " + error.getDefaultMessage());
-            }
-
+            response.setViewName("auth/register");
             response.addObject("form", form);
             response.addObject("errors", bindingResult);
             return response;
         }
 
-        log.info("######################### In register user - no error found #########################");
+        User newUser = userService.createNewUser(form);
 
-        User u = userService.createNewUser(form);
+        if (!profilePhoto.isEmpty()) {
+            try {
+                String filename = saveProfilePhoto(profilePhoto, newUser.getId());
+                newUser.setProfilePhoto(filename);
+                userDAO.save(newUser);
+            } catch (IOException e) {
+                log.error("Error during file upload: ", e);
+                response.setViewName("auth/register");
+                response.addObject("fileError", "Error occurred during file upload: " + e.getMessage());
+                return response;
+            }
+        }
 
-        // this line of code will authenticate the brand new user to the application
-        // the session we are passing into this method as an argument and spring boot is automatically managing the session
-        // and is able to figure out the new argument to the controller method and populate it with the correct session
-        authenticatedUserService.authenticateNewUser(session, u.getEmail(), form.getPassword());
-
-        // the view name can either be a jsp file name or a redirect to another controller method
-        ModelAndView response = new ModelAndView();
+        authenticatedUserService.authenticateNewUser(session, newUser.getEmail(), form.getPassword());
         response.setViewName("redirect:/");
-
         return response;
     }
 
+    private String saveProfilePhoto(MultipartFile file, int userId) throws IOException {
+        // Logic to save the file in a directory and return the file path or filename
+        // Ensure this logic handles file validation, storage and returns the path or filename for the saved file
+        if (file.isEmpty()) {
+            throw new IOException("Cannot save an empty file.");
+        }
 
+        // Validate the file type, size, etc.
+        String contentType = file.getContentType();
+        if (contentType == null || !contentType.startsWith("image")) {
+            throw new IOException("Invalid file type. Only image files are allowed.");
+        }
+
+        // Construct a unique filename (e.g., using user ID and original filename)
+        String originalFilename = file.getOriginalFilename();
+        String filename = userId + "_" + originalFilename;
+
+        // Define the path where the file will be saved
+        Path destinationPath = Paths.get("./src/main/webapp/pub/images/").resolve(filename);
+
+        // Save the file
+        Files.copy(file.getInputStream(), destinationPath, StandardCopyOption.REPLACE_EXISTING);
+
+        // Return the path or filename as a string
+        return "/pub/images/" + filename;
+    }
 
 }
