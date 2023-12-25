@@ -12,7 +12,7 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
-
+ <div class="main-content">
 <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-custom fixed-top">
     <div class="container-fluid">
         <a class="navbar-brand " href="/">The Recipes</a>
@@ -60,7 +60,8 @@
                    </li>
                     <li class="nav-item">
 
-                          <img src="${pageContext.request.contextPath}${user.profilePhoto}" alt="Profile Photo" class="profile-photo">
+                         <img src="@{/pub/images/{filename}(filename=${user.profilePhoto})}" alt="Profile Photo" class="profile-photo">
+
 
                      </li>
                      <li class="nav-item">
@@ -78,5 +79,4 @@
 
     </div>
 </nav>
-</body>
-</html>
+  </div>

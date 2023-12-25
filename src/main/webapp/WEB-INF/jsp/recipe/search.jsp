@@ -3,21 +3,19 @@
 <jsp:include page="../include/header.jsp"/>
 
 
+<section class="custom-container3">
+<div class="custom-container2">
+    <form action="/recipe/search" method="GET" class="search-form">
+        <div class="form-row">
 
-<div class="container mt-5 mb-4"> <!-- Added mb-4 to add margin at the bottom -->
-    <form action="/recipe/search" method="GET">
-        <div class="row justify-content-center">
-            <div class="col-12 col-md col-lg-2 mb-2" id="nav1">
-                <label for="nameSearch" class="form-label">Recipe Name</label>
-            </div>
-            <div class="col-md-6 mb-4">
+            <div class="form-column">
                 <div class="input-group">
-                    <input type="text" class="form-control" id="nameSearch" name="nameSearch" placeholder="Search by recipe name" value="${nameSearch}" required>
-                    <button type="submit" class="btn btn-primary">
+                    <input type="text" id="nameSearch" name="nameSearch" placeholder="Search by recipe name" value="${nameSearch}" required>
+                    <button type="submit" class="search-button">
                         <i class="fas fa-search"></i> Search
                     </button>
                 </div>
-                <small class="text-danger">
+                <small class="error-message">
                     <c:if test="${not empty nameSearch && nameSearch.length() < 3}">
                         Name should be at least 3 characters long.
                     </c:if>
@@ -26,6 +24,7 @@
         </div>
     </form>
 </div>
+</section>
 
 <c:if test="${not empty recipeVar}">
     <section class="py-5" style="background-color: #f8f9fa;">
@@ -65,8 +64,6 @@
     </section>
 </c:if>
 
-<div class="scrollable-content"> <!-- Add this div for scrollable content -->
-    <!-- Empty content here -->
-</div>
+<div class="spacer"></div>
 
 <jsp:include page="../include/footer.jsp"/>

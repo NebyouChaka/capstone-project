@@ -2,8 +2,8 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/pub/CSS/global-style.css">
 <jsp:include page="../include/header.jsp"/>
 
- <section>
-    <div class="bg-light2 pt-5 pb-5">
+ <section style="padding-top: 200px;">
+    <div class="bg-light2 pt-5 pb-5" >
         <div class="row">
             <div class="col-12 text-center">
                 <h1 class="m-0">Create Recipes</h1>
