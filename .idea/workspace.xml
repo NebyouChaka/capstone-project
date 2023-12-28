@@ -6,12 +6,20 @@
   <component name="ChangeListManager">
     <list default="true" id="ec6004cf-3aba-4f9a-8a55-48cf3306c693" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/include/footer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/include/footer.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/include/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/include/header.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/RecipesApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/RecipesApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/database/entity/Recipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/capstone/project/recipes/database/entity/Recipe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/recipe/Recipes.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/recipe/Recipes.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/recipe/category.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/recipe/category.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/recipe/create.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/recipe/create.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/recipe/detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/recipe/detail.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/recipe/search.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/recipe/search.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/pub/CSS/global-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pub/CSS/global-style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/pub/js/myScript.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pub/js/myScript.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/capstone/project/recipes/RecipesApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +34,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -54,12 +63,22 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
+    <property name="settings.editor.selected.configurable" value="reference.idesettings.debugger.capture" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\nebyo\Devlopment\recipes\src\main\webapp\pub\images" />
       <recent name="C:\Users\nebyo\Devlopment\recipes\src\main\webapp\WEB-INF\jsp\recipe" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="capstone.project.recipes.database.dao" />
+      <recent name="capstone.project.recipes.database.entity" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -67,21 +86,32 @@
       <command value="mvn clean spring-boot:run" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.RecipesApplication">
-    <configuration name="RecipesApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="capstone.project.recipes.RecipesApplication" />
+  <component name="RunManager" selected="JUnit.FavoriteDAOTest (2)">
+    <configuration name="FavoriteDAOTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="springboot" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="capstone.project.recipes.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="FavoriteDAOTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RecipesApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="FavoriteDAOTest (2)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="springboot" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="capstone.project.recipes.database.dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="capstone.project.recipes.database.dao" />
+      <option name="MAIN_CLASS_NAME" value="capstone.project.recipes.database.dao.FavoriteDAOTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FavoriteDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="springboot" />
       <extension name="coverage">
         <pattern>
@@ -90,7 +120,37 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="capstone.project.recipes" />
-      <option name="MAIN_CLASS_NAME" value="capstone.project.recipes.RecipesApplicationTests" />
+      <option name="MAIN_CLASS_NAME" value="capstone.project.recipes.FavoriteDAOTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RecipeDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="springboot" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="capstone.project.recipes.database.dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="capstone.project.recipes.database.dao" />
+      <option name="MAIN_CLASS_NAME" value="capstone.project.recipes.database.dao.RecipeDAOTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserDAOTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="springboot" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="capstone.project.recipes.database.dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="capstone.project.recipes.database.dao" />
+      <option name="MAIN_CLASS_NAME" value="capstone.project.recipes.database.dao.UserDAOTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -109,8 +169,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.RecipesApplication" />
-        <item itemvalue="JUnit.RecipesApplicationTests" />
+        <item itemvalue="JUnit.FavoriteDAOTest (2)" />
+        <item itemvalue="JUnit.UserDAOTest (1)" />
+        <item itemvalue="JUnit.RecipeDAOTest" />
+        <item itemvalue="JUnit.FavoriteDAOTest" />
+        <item itemvalue="JUnit.FavoriteDAOTest (1)" />
       </list>
     </recent_temporary>
   </component>

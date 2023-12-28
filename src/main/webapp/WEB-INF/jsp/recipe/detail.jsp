@@ -14,6 +14,7 @@
             </div>
         </div>
     </div>
+
 </section>
 
 
@@ -33,6 +34,7 @@
                         </c:forEach>
                     </ul>
                     <a href="${pageContext.request.contextPath}/recipe/addIngredient?recipeId=${recipe.id}" class="btn btn-primary">Add Ingredients</a>
+
                 </div>
             </div>
         </div>
@@ -44,4 +46,5 @@
         </div>
     </div>
 </section>
+<script src="${pageContext.request.contextPath}/js/myScript.js"></script>
 <jsp:include page="../include/footer.jsp"/>

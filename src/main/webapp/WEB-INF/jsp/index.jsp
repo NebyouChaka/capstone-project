@@ -43,9 +43,10 @@
                         </div>
                         <h4>${recipe.name}</h4>
                     </a>
+
                     <form action="${pageContext.request.contextPath}/addFavorite" method="post">
                         <input type="hidden" name="recipeId" value="${recipe.id}">
-                        <button type="submit">Add to Favorites</button>
+                        <button type="submit" class="btn btn-primary">Add to Favorites</button>
                     </form>
                 </div>
             </div>
@@ -56,7 +57,7 @@
 <div class="spacer"></div>
 
 
-    <script src="${pageContext.request.contextPath}/js/myScript.js"></script>
+<script src="${pageContext.request.contextPath}/js/myScript.js"></script>
 
 
 <jsp:include page="include/footer.jsp"/>

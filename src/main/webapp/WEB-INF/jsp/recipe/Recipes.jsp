@@ -18,5 +18,5 @@
 
     <a href="/recipes" class="btn btn-primary mt-3">Back to Recipes</a>
 </div>
-
+<div class="spacer3"></div>
 <%@ include file="../include/footer.jsp" >

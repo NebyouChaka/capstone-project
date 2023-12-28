@@ -22,6 +22,8 @@ h2 {
 }
 h4{
     color: black;
+    margin: 20px;
+    font-size: 30px;
 }
 h5{
     color: white;
@@ -233,6 +235,10 @@ a  {
 margin: 50px;
     height: 100px; /* Adjust this value to match the height of your footer */
 }
+.spacer3 {
+margin: 100px;
+    height: 400px; /* Adjust this value to match the height of your footer */
+}
 .form-label {
     font-size: 30px;
 }
@@ -254,8 +260,9 @@ margin: 50px;
 
 .search-form {
     /* Add styles for the form if needed */
-    margin: 100px;
-    padding: 100px;
+    margin-top: -200px;
+    padding-bottom: 300px;
+
 }
 
 .form-row {
@@ -404,3 +411,11 @@ margin: 50px;
 }
 
 /* Additional responsive or specific styling as needed */
+.img-fluid1{
+  width: 100%;
+   height: 600px;;
+}
+.blurry-stretch {
+    opacity: 0.5;
+    object-fit: cover; /* Stretch the image to cover the container */
+}

@@ -83,6 +83,6 @@
         </form>
     </div>
 </section>
-
+<div class="spacer"></div>
 
  <jsp:include page="../include/footer.jsp"/>

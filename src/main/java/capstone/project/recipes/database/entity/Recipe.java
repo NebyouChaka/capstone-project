@@ -22,7 +22,6 @@ public class Recipe {
     private List<RecipeIngredient> recipeIngredients;
 
 
-
     @Column(name = "name")
     private String name;
 

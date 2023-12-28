@@ -5,6 +5,9 @@
 
 <section class="custom-container3">
 <div class="custom-container2">
+    <div>
+    <img src="https://c4.wallpaperflare.com/wallpaper/373/952/839/wooden-spoon-condiments-background-wallpaper-preview.jpg" class="img-fluid1 blurry-stretch" alt="...">
+    </div>
     <form action="/recipe/search" method="GET" class="search-form">
         <div class="form-row">
 
@@ -64,6 +67,6 @@
     </section>
 </c:if>
 
-<div class="spacer"></div>
+<div class="spacer3"></div>
 
 <jsp:include page="../include/footer.jsp"/>

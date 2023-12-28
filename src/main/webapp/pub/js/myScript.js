@@ -30,6 +30,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const addIngredientButton = document.getElementById("addIngredientButton");
     addIngredientButton.addEventListener("click", addIngredientInput);
 });
+
+
     // Call addIngredientInput when the window loads
     window.onload = function() {
         addIngredientInput();
