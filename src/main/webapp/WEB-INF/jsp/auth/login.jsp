@@ -2,7 +2,20 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/pub/CSS/global-style.css">
 <jsp:include page="../include/header.jsp"/>
 
-
+<div class="image-container" style="background-color: white; padding-left: 100px;">
+    <div class="col-md-3 mb-4" style= "padding-left: 130px;">
+        <img src="/pub/images/image1.png" alt="Image 1" class="img-fluid" style="height: 200px;">
+    </div>
+    <div class="col-md-3 mb-4">
+        <img src="/pub/images/imag2.png" alt="Image 2" class="img-fluid" style="height: 200px;">
+    </div>
+    <div class="col-md-3 mb-4">
+        <img src="/pub/images/image3.png" alt="Image 3" class="img-fluid" style="height: 200px;">
+    </div>
+    <div class="col-md-3 mb-4">
+        <img src="/pub/images/image4.png" alt="Image 4" class="img-fluid" style="height: 200px;">
+    </div>
+</div>
 <section>
     <div class="bg-light2 pt-5 pb-5">
         <div class="row">
@@ -49,5 +62,19 @@
         </div>
     </div>
 </section>
+<div class="image-container" style="background-color: white; padding-left: 100px;">
+    <div class="col-md-3 mb-4" style= "padding-left: 130px;">
+        <img src="/pub/images/image1.png" alt="Image 1" class="img-fluid" style="height: 200px;">
+    </div>
+    <div class="col-md-3 mb-4">
+        <img src="/pub/images/imag2.png" alt="Image 2" class="img-fluid" style="height: 200px;">
+    </div>
+    <div class="col-md-3 mb-4">
+        <img src="/pub/images/image3.png" alt="Image 3" class="img-fluid" style="height: 200px;">
+    </div>
+    <div class="col-md-3 mb-4">
+        <img src="/pub/images/image4.png" alt="Image 4" class="img-fluid" style="height: 200px;">
+    </div>
+</div>
 
  <jsp:include page="../include/footer.jsp"/>

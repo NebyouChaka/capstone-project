@@ -9,7 +9,10 @@ import capstone.project.recipes.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
@@ -99,5 +102,13 @@ public class UserController {
         userService.deleteUser(userId);
         // Redirect to a suitable page after deleting the user
         return new ModelAndView("redirect:/admin/dashboard"); // Redirect to the admin dashboard or another appropriate page
+    }
+    @ModelAttribute("user")
+    public User globalUserAttribute() {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (auth != null && auth.isAuthenticated() && !"anonymousUser".equals(auth.getPrincipal())) {
+            return userService.findByUsername(auth.getName());
+        }
+        return null;
     }
 }

@@ -40,6 +40,9 @@ public class UserService {
     public List<User> getAllUsers() {
         return userDao.findAll();
     }
+    public User findByUsername(String username) {
+        return userDao.findByEmail(username.toLowerCase());
+    }
     public void deleteUser(Long userId) {
         // Logic to delete the user
         userDao.deleteById(userId);

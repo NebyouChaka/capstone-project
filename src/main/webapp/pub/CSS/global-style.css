@@ -12,9 +12,12 @@ body::before {
     right: 0;
     bottom: 0;
     z-index: -1; /* Place the pseudo-element behind other content */
-}
+    }
 h1{
     font-size: 50px;
+}
+h3{
+    margin:20px;
 }
 h2 {
     margin: 100px;
@@ -44,6 +47,8 @@ h5{
 }
 .navbar-custom {
     background-color: #004658 !important; /* Use !important to override Bootstrap styles */
+    padding: 20px;
+
 }
 .navbar-custom .nav-link {
     color: black !important; /* Set the font color to white */
@@ -227,17 +232,26 @@ a  {
     overflow-y: auto;
 }
 .content-wrapper {
-            margin: 20px; /* Adjust margin as needed */
-            padding: 20px; /* Adjust padding as needed */
-        }
+    margin-top: 20px; /* Adjust margin as needed */
+    margin-bottom: 80px;
+    padding: 20px; /* Adjust padding as needed */
+    background-color: white;
+    height: 100%;
+    font-family: semibold;
 
+        }
+table{
+    font-size: 30px;
+    margin-bottom: 220px;
+}
 .spacer {
 margin: 50px;
     height: 100px; /* Adjust this value to match the height of your footer */
 }
 .spacer3 {
-margin: 100px;
-    height: 400px; /* Adjust this value to match the height of your footer */
+margin-top: 1500px;
+margin-bottom: 400px;
+
 }
 .form-label {
     font-size: 30px;
@@ -255,17 +269,23 @@ margin: 100px;
     width: 100%;
     max-width: 1200px;
     padding: 0 15px;
-    margin: 0 auto;;
+    margin: 0 auto;
+    background-color: white;
 }
 
 .search-form {
     /* Add styles for the form if needed */
-    margin-top: -200px;
-    padding-bottom: 300px;
+    margin-top: 100px;
+    padding-bottom: 50px;
 
+}
+.back{
+    margin: 100px;
+    text-align: center;
 }
 
 .form-row {
+
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -297,6 +317,7 @@ margin: 100px;
 
 .search-button {
     /* Style the search button */
+    color: red;
 }
 
 .error-message {
@@ -304,7 +325,47 @@ margin: 100px;
 }
 
 /* Add additional styles as needed */
+.detail-button {
+       display: inline-block;
+        padding: 8px 16px;
+        font-size: 14px;
+        background-color: #007bff; /* Button background color */
+        color: #fff; /* Button text color */
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        text-decoration: none;
+        text-align: center;
+        transition: background-color 0.3s ease;
+}
 
+.edit-button {
+    background-color: #0056b3;
+       padding: 8px 16px;
+            font-size: 14px;
+            background-color: #007bff; /* Button background color */
+            color: #fff; /* Button text color */
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s ease;
+}
+.detail-button1 {
+       display: inline-block;
+        padding: 11px 30px;
+        margin-left:30px;
+        font-size: 14px;
+        background-color: #007bff; /* Button background color */
+        color: #fff; /* Button text color */
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        text-decoration: none;
+        text-align: center;
+        transition: background-color 0.3s ease;
+}
 
 //--------------------footer---------------------------
 .footer-container {
@@ -418,4 +479,92 @@ margin: 100px;
 .blurry-stretch {
     opacity: 0.5;
     object-fit: cover; /* Stretch the image to cover the container */
+}
+#spacer1{
+    margin: 100px;
+}
+.text-center{
+    margin-top: 100px;
+}
+.card-img-top {
+    width: 600px; /* Adjust the width as needed */
+    height: auto;
+}
+//----------------------------detail------------------------
+.content-flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.card-container2 {
+    flex: 1;
+    width: calc(50% - 10px); /* Adjust the width as needed */
+    margin-right: 20px;
+}
+
+.image-container2 {
+    flex: 1;
+    width: calc(50% - 10px); /* Adjust the width as needed */
+}
+
+.card1 {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.card-body1 {
+    text-align: left;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    margin-bottom: 5px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 5px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.375rem 0.75rem;
+    margin: 30px;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+.card-img-top {
+    max-width: 100%;
+    height: auto;
+}
+.card-text{
+    margin: 30px
+}
+.container {
+background-color: white;
+}
+.bg-light2 {
+    background-color: white;
+}
+.pt-5 {
+     background-color: white;
 }

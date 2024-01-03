@@ -1,90 +1,61 @@
 package capstone.project.recipes.database.dao;
 
 import capstone.project.recipes.database.entity.User;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
+import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
+@SpringBootTest
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+public class UserDAOTest {
 
-class UserDAOTest {
-
-    @Mock
+    @Autowired
     private UserDAO userDAO;
 
-    @BeforeEach
-    public void setUp() {
-        MockitoAnnotations.openMocks(this);
-    }
     @Test
-    public void findByEmailIgnoreCase() {
+    @Order(1)
+    public void findUserByEmailTest() {
+        // given
+        String email = "nebyouchaka@gmail.com"; // Replace with a valid email in your database
 
-            // Arrange
-            String userEmail = "nebyouchaka@gmail.com";
-            User user = new User();
-            user.setEmail(userEmail);
+        // when
+        User user = userDAO.findByEmail(email);
 
-            when(userDAO.findByEmailIgnoreCase(userEmail)).thenReturn(user);
-
-            // Act
-            User result = userDAO.findByEmailIgnoreCase(userEmail);
-
-            // Assert
-            assertEquals(user, result);
-
+        // then
+        Assertions.assertNotNull(user);
+        Assertions.assertEquals(email, user.getEmail());
     }
 
     @Test
-    void findById() {
+    @Order(2)
+    public void findUserByEmailIgnoreCaseTest() {
+        // given
+        String email = "nebyouchaka@gmail.com"; // Use a case-insensitive version of a valid email
 
-        // Arrange
-        Integer userId = 1;
-        User user = new User();
-        user.setId(userId);
+        // when
+        User user = userDAO.findByEmailIgnoreCase(email);
 
-        when(userDAO.findById(userId)).thenReturn(List.of(user));
-
-        // Act
-        List<User> result = userDAO.findById(userId);
-
-        // Assert
-        Assertions.assertNotNull(result);
-        assertEquals(1, result.size());
-        assertEquals(user, result.get(0));
-    }
-    @Test
-    public void testFindAll() {
-        // Arrange
-        User user1 = new User();
-        User user2 = new User();
-        List<User> users = Arrays.asList(user1, user2);
-
-        when(userDAO.findAll()).thenReturn(users);
-
-        // Act
-        List<User> result = userDAO.findAll();
-
-        // Assert
-        assertEquals(users.size(), result.size());
-        assertEquals(users, result);
+        // then
+        Assertions.assertNotNull(user);
+        Assertions.assertTrue(email.equalsIgnoreCase(user.getEmail()));
     }
 
     @Test
-    public void testDeleteUser() {
-        // Arrange
-        Long userId = 1L;
+    @Order(3)
+    public void findUserByIdTest() {
+        // given
+        Integer userId = 1; // Replace with a valid user ID in your database
 
-        // Act
-        userDAO.deleteById(userId);
+        // when
+        List<User> users = userDAO.findById(userId);
 
-        // Assert
-        verify(userDAO, times(1)).deleteById(userId);
+        // then
+        Assertions.assertFalse(users.isEmpty());
+        User user = users.get(0);
+        Assertions.assertEquals(userId, user.getId());
     }
 }

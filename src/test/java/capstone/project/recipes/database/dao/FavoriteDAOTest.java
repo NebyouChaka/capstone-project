@@ -1,71 +1,80 @@
 package capstone.project.recipes.database.dao;
 
 import capstone.project.recipes.database.entity.Favorite;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
+import org.junit.jupiter.api.*;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.Primary;
-import org.springframework.test.context.TestPropertySource;
 
 import java.util.List;
 import java.util.Optional;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.mock;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 
-@DataJpaTest
+@SpringBootTest
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class FavoriteDAOTest {
 
+    @Autowired
     private FavoriteDAO favoriteDAO;
 
-    @BeforeEach
-    public void setUp() {
-        MockitoAnnotations.openMocks(this);
-        favoriteDAO = mock(FavoriteDAO.class);
+    @Test
+    @Order(1)
+    public void findFavoriteByUserIdAndRecipeIdTest() {
+        // given
+        int userId = 1; // Replace with a valid user ID
+        int recipeId = 21; // Replace with a valid recipe ID
+
+        // when
+        Optional<Favorite> favorite = favoriteDAO.findByUserIdAndRecipeId(userId, recipeId);
+
+        // then
+        Assertions.assertTrue(favorite.isPresent());
+        Assertions.assertEquals(userId, favorite.get().getUserId());
+        Assertions.assertEquals(recipeId, favorite.get().getRecipeId());
     }
 
     @Test
-    public void testFindByUserId() {
-        int userId = 1;
-        Favorite favorite = new Favorite();
-        favoriteDAO.save(favorite);
+    @Order(2)
+    public void findByUserIdTest() {
+        // given
+        int userId = 1; // Replace with a valid user ID
 
-        List<Favorite> result = favoriteDAO.findByUserId(userId);
+        // when
+        List<Favorite> favorites = favoriteDAO.findByUserId(userId);
 
-        assertEquals(1, result.size());
+        // then
+        Assertions.assertFalse(favorites.isEmpty());
+        for (Favorite fav : favorites) {
+            Assertions.assertEquals(userId, fav.getUserId());
+        }
     }
 
     @Test
-    public void testFindByUserIdAndRecipeId() {
-        int userId = 1;
-        int recipeId = 100;
-        Favorite favorite = new Favorite();
-        favoriteDAO.save(favorite);
+    @Order(3)
+    public void deleteFavoriteByUserIdAndRecipeIdTest() {
+        // given
+        int userId = 1; // Replace with a valid user ID
+        int recipeId = 1; // Replace with a valid recipe ID
 
-        Optional<Favorite> result = favoriteDAO.findByUserIdAndRecipeId(userId, recipeId);
-
-        assertTrue(result.isPresent()); // Check if the Optional is present
-        assertEquals(userId, result.get().getUserId());
-        assertEquals(recipeId, result.get().getRecipeId());
-    }
-
-
-    @Test
-    public void testDeleteByUserIdAndRecipeId() {
-        int userId = 1;
-        int recipeId = 100;
-        Favorite favorite = new Favorite();
-        favoriteDAO.save(favorite);
-
+        // when
         favoriteDAO.deleteByUserIdAndRecipeId(userId, recipeId);
-
         Optional<Favorite> deletedFavorite = favoriteDAO.findByUserIdAndRecipeId(userId, recipeId);
-        assertFalse(deletedFavorite.isPresent());
+
+        // then
+        Assertions.assertFalse(deletedFavorite.isPresent());
+    }
+
+    @Test
+    @Order(4)
+    public void shouldNotExistTest() {
+        // given
+        int userId = 1; // Replace with a valid user ID
+        int recipeId = 1; // Replace with a valid recipe ID
+
+        // when
+        Optional<Favorite> favorite = favoriteDAO.findByUserIdAndRecipeId(userId, recipeId);
+
+        // then
+        Assertions.assertFalse(favorite.isPresent());
     }
 }
+

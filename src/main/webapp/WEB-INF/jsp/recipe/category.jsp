@@ -28,7 +28,7 @@
                         <td>${category}</td> <!-- Category column -->
                         <td>${recipe.name}</td>
                         <td>${recipe.description}</td>
-                        <td><img src="${recipe.image_url}" alt="Image of ${recipe.name}" style="height: 100px; width: 100px;"></td>
+                        <td><img src="${recipe.image_url}" alt="Image of ${recipe.name}" style="height: 100px; width: 200px;"></td>
                          <td>
                          <a href="/recipe/detail?id=${recipe.id}" class="btn btn-primary">Details</a>
                          </td>

@@ -1,114 +1,85 @@
 package capstone.project.recipes.database.dao;
-
 import capstone.project.recipes.database.entity.Recipe;
-import org.hibernate.service.Service;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
-import org.mockito.junit.jupiter.MockitoSettings;
-import org.mockito.quality.Strictness;
+import org.junit.jupiter.api.*;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
-
-import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.when;
+@SpringBootTest
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+public class RecipeDAOTest {
 
-@MockitoSettings(strictness = Strictness.LENIENT)
-class RecipeDAOTest {
-
-
-
-    @Mock
+    @Autowired
     private RecipeDAO recipeDAO;
 
-//    @Mock
-//    private Service service; // Injecting a mock of Service
+    @Test
+    @Order(1)
+    public void createRecipeTest() {
+        // given
+        Recipe recipe = new Recipe();
+        recipe.setName("Test Recipe");
+        recipe.setDescription("Test Description");
+        recipe.setImage_url("Test Image URL");
+        recipe.setCategory("Test Category");
+        recipe.setUser_id(1);  // Assuming a user with ID 1 exists
 
-    @BeforeEach
-    public void setUp() {
-        MockitoAnnotations.openMocks(this);
+        // when
+        recipe = recipeDAO.save(recipe);
+
+        // then
+        Assertions.assertNotNull(recipe.getId());
+        Assertions.assertEquals("Test Recipe", recipe.getName());
+        Assertions.assertEquals("Test Description", recipe.getDescription());
+        Assertions.assertEquals("Test Image URL", recipe.getImage_url());
+        Assertions.assertEquals("Test Category", recipe.getCategory());
+        Assertions.assertEquals(1, recipe.getUser_id());
     }
 
     @Test
-    public void testFindByName() {
-        // Arrange
+    @Order(2)
+    public void findByNameTest() {
+        // given
         String name = "Test Recipe";
-        List<Recipe> expectedRecipes = Arrays.asList(new Recipe(), new Recipe());
 
-        when(recipeDAO.findByName("%" + name + "%")).thenReturn(expectedRecipes);
+        // when
+        List<Recipe> recipes = recipeDAO.findByName(name);
 
-        // Act
-        List<Recipe> actualRecipes = recipeDAO.findByName(name);
-
-        // Assert
-        assertEquals(expectedRecipes.size(), actualRecipes.size());
-        assertEquals(expectedRecipes, actualRecipes);
+        // then
+        Assertions.assertFalse(recipes.isEmpty());
+        Recipe foundRecipe = recipes.get(0);
+        Assertions.assertEquals("Test Recipe", foundRecipe.getName());
     }
 
     @Test
-    public void testGetRecipesByCategory() {
-        // Arrange
+    @Order(3)
+    public void findByCategoryTest() {
+        // given
         String category = "Test Category";
-        List<Recipe> expectedRecipes = Arrays.asList(new Recipe(), new Recipe());
 
-        when(recipeDAO.getRecipesByCategory(category)).thenReturn(expectedRecipes);
+        // when
+        List<Recipe> recipes = recipeDAO.getRecipesByCategory(category);
 
-        // Act
-        List<Recipe> actualRecipes = recipeDAO.getRecipesByCategory(category);
-
-        // Assert
-        assertEquals(expectedRecipes.size(), actualRecipes.size());
-        assertEquals(expectedRecipes, actualRecipes);
+        // then
+        Assertions.assertFalse(recipes.isEmpty());
+        for (Recipe recipe : recipes) {
+            Assertions.assertEquals("Test Category", recipe.getCategory());
+        }
     }
 
     @Test
-    public void testFindAll() {
-        // Arrange
-        List<Recipe> expectedRecipes = Arrays.asList(new Recipe(), new Recipe());
+    @Order(4)
+    public void deleteRecipeTest() {
+        // given
+        String name = "Test Recipe";
 
-        when(recipeDAO.findAll()).thenReturn(expectedRecipes);
+        // when
+        List<Recipe> recipes = recipeDAO.findByName(name);
+        recipes.forEach(recipe -> recipeDAO.delete(recipe));
 
-        // Act
-        List<Recipe> actualRecipes = recipeDAO.findAll();
-
-        // Assert
-        assertEquals(expectedRecipes.size(), actualRecipes.size());
-        assertEquals(expectedRecipes, actualRecipes);
-    }
-
-    @Test
-    public void testFindListById() {
-        // Arrange
-        Long id = 1L;
-        List<Recipe> expectedRecipes = Arrays.asList(new Recipe(), new Recipe());
-
-        when(recipeDAO.findListById(id)).thenReturn(expectedRecipes);
-
-        // Act
-        List<Recipe> actualRecipes = recipeDAO.findListById(id);
-
-        // Assert
-        assertEquals(expectedRecipes.size(), actualRecipes.size());
-        assertEquals(expectedRecipes, actualRecipes);
-    }
-
-    @Test
-    public void testFindById() {
-        // Arrange
-        Integer id = 1;
-        Recipe expectedRecipe = new Recipe();
-
-        when(recipeDAO.findById(id)).thenReturn(expectedRecipe);
-
-        // Act
-        Recipe actualRecipe = recipeDAO.findById(id);
-
-        // Assert
-        assertEquals(expectedRecipe, actualRecipe);
+        // then
+        List<Recipe> deletedRecipes = recipeDAO.findByName(name);
+        Assertions.assertTrue(deletedRecipes.isEmpty());
     }
 }

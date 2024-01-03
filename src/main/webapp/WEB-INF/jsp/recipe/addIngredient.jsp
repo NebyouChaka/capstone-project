@@ -44,5 +44,6 @@
         </tbody>
     </table>
 </div>
+<div class="spacer3"></div>
 <script type="text/javascript" src="${pageContext.request.contextPath}/pub/js/myScript.js"></script>
 <jsp:include page="../include/footer.jsp"/>

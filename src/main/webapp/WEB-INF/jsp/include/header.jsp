@@ -59,10 +59,9 @@
                        <a class="nav-link" href="/auth/logout">Logout</a>
                    </li>
                     <li class="nav-item">
-
-                         <img src="@{/pub/images/{filename}(filename=${user.profilePhoto})}" alt="Profile Photo" class="profile-photo">
-
-
+                     <c:if test="${not empty user.profilePhoto}">
+                       <img src="${pageContext.request.contextPath}/webapp/pub/images/${user.profilePhoto}" alt="Profile Photo" class="navbar-profile-photo" />
+                       </c:if>
                      </li>
                      <li class="nav-item">
                           <a class="nav-link" href="/favorites">My Favorites</a>

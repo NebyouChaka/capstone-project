@@ -4,10 +4,22 @@
 
 
 <section class="custom-container3">
-<div class="custom-container2">
-    <div>
-    <img src="https://c4.wallpaperflare.com/wallpaper/373/952/839/wooden-spoon-condiments-background-wallpaper-preview.jpg" class="img-fluid1 blurry-stretch" alt="...">
+<div class="image-container" style="background-color: white; padding-left: 100px;">
+    <div class="col-md-3 mb-4" style= "padding-left: 130px;">
+        <img src="/pub/images/image1.png" alt="Image 1" class="img-fluid" style="height: 200px;">
     </div>
+    <div class="col-md-3 mb-4">
+        <img src="/pub/images/imag2.png" alt="Image 2" class="img-fluid" style="height: 200px;">
+    </div>
+    <div class="col-md-3 mb-4">
+        <img src="/pub/images/image3.png" alt="Image 3" class="img-fluid" style="height: 200px;">
+    </div>
+    <div class="col-md-3 mb-4">
+        <img src="/pub/images/image4.png" alt="Image 4" class="img-fluid" style="height: 200px;">
+    </div>
+</div>
+<div class="custom-container2">
+   <h1 class="back"> Serach Recipe</h1>
     <form action="/recipe/search" method="GET" class="search-form">
         <div class="form-row">
 
@@ -30,12 +42,12 @@
 </section>
 
 <c:if test="${not empty recipeVar}">
-    <section class="py-5" style="background-color: #f8f9fa;">
+    <section class="py-5" >
         <div class="container text-center">
             <h1 class="display-4 mb-5 font-weight-bold">Recipes Found: ${recipeVar.size()}</h1>
 
             <div class="table-responsive">
-                <table class="table table-hover" style="background-color: #ffffff;">
+                <table class="table table-hover" >
                     <thead class="thead-dark">
                         <tr>
                             <th>Id</th>
@@ -55,8 +67,9 @@
                                 <td>${recipeItem.description}</td>
                                 <td>${recipeItem.category}</td>
                                 <td><img src="${recipe.image_url}" style="max-width:100px"></td>
-                                <td><a href="/recipe/detail?id=${recipeItem.id}">Detail</a></td>
-                                <td><a href="/recipe/edit/${recipeItem.id}">Edit</a></td>
+                              <td><button class="detail-button" onclick="window.location.href='/recipe/detail?id=${recipeItem.id}'">Detail</button></td>
+                              <td><button class="edit-button" onclick="window.location.href='/recipe/edit/${recipeItem.id}'">Edit</button></td>
+
 
                             </tr>
                         </c:forEach>
