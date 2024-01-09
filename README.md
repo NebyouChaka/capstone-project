@@ -59,6 +59,10 @@ The application will be accessible at `http://localhost:8080`.
 - Explore recipes, create your own, and enjoy the features of "The Recipes."
 
 ## Screenshots
+![Screenshot 2024-01-08 212130](https://github.com/NebyouChaka/capstone-project/assets/76010226/960a3ad4-33d8-46ef-851b-c7485797ddbf)
+
+
+
 
 ![Screenshot 1](C:\Users\nebyo\Devlopment\recipes\src\main\webapp\pub\images\recepe_home_page.png "The Recipes Home Page")
 
