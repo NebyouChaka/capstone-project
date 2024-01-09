@@ -61,6 +61,9 @@ The application will be accessible at `http://localhost:8080`.
 ## Screenshots
 ![Screenshot 2024-01-08 212130](https://github.com/NebyouChaka/capstone-project/assets/76010226/960a3ad4-33d8-46ef-851b-c7485797ddbf)
 
+![image](https://github.com/NebyouChaka/capstone-project/assets/76010226/5749857a-91b4-4337-853a-eecc496cd27f)
+
+
 ![Screenshot 2024-01-08 212644](https://github.com/NebyouChaka/capstone-project/assets/76010226/f5716fc2-8680-40d2-9333-8eca85d6003c)
 
 ![Screenshot 2024-01-08 213012](https://github.com/NebyouChaka/capstone-project/assets/76010226/cee7ca9b-81c0-461b-adf6-3ab17fa041e2)
