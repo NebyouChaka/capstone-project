@@ -61,16 +61,14 @@ The application will be accessible at `http://localhost:8080`.
 ## Screenshots
 ![Screenshot 2024-01-08 212130](https://github.com/NebyouChaka/capstone-project/assets/76010226/960a3ad4-33d8-46ef-851b-c7485797ddbf)
 
+![Screenshot 2024-01-08 212644](https://github.com/NebyouChaka/capstone-project/assets/76010226/f5716fc2-8680-40d2-9333-8eca85d6003c)
+
+![Screenshot 2024-01-08 213012](https://github.com/NebyouChaka/capstone-project/assets/76010226/cee7ca9b-81c0-461b-adf6-3ab17fa041e2)
+
+![Screenshot 2024-01-08 213110](https://github.com/NebyouChaka/capstone-project/assets/76010226/7c0d3f68-0166-4f2b-8870-bea01012550e)
 
 
 
-![Screenshot 1](C:\Users\nebyo\Devlopment\recipes\src\main\webapp\pub\images\recepe_home_page.png "The Recipes Home Page")
-
-![Screenshot 2](C:\Users\nebyo\Devlopment\recipes\src\main\webapp\pub\images\userRegister.png)
-
-![Screenshot 2](C:\Users\nebyo\Devlopment\recipes\src\main\webapp\pub\images\favoritePage.png)
-
-![Screenshot 2](C:\Users\nebyo\Devlopment\recipes\src\main\webapp\pub\images\categoryPage.png)
 
 ## Creator
 
