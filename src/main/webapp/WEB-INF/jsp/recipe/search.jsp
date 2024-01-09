@@ -42,7 +42,7 @@
 </section>
 
 <c:if test="${not empty recipeVar}">
-    <section class="py-5" >
+    <section >
         <div class="container text-center">
             <h1 class="display-4 mb-5 font-weight-bold">Recipes Found: ${recipeVar.size()}</h1>
 
@@ -50,25 +50,25 @@
                 <table class="table table-hover" >
                     <thead class="thead-dark">
                         <tr>
-                            <th>Id</th>
-                            <th>Name</th>
-                            <th>Description</th>
-                             <th>Category</th>
-                            <th>Image_URL</th>
-                            <th>Detail</th>
-                            <th>Edit</th>
+                            <th style="color: white;">Id</th>
+                            <th style="color: white;">Name</th>
+                            <th style="color: white;">Description</th>
+                             <th style="color: white;">Category</th>
+                            <th style="color: white;">Image_URL</th>
+                            <th style="color: white;">Detail</th>
+                            <th style="color: white;">Edit</th>
                         </tr>
                     </thead>
                     <tbody>
                         <c:forEach items="${recipeVar}" var="recipeItem">
                             <tr>
-                                <td>${recipeItem.id}</td>
-                                <td>${recipeItem.name}</td>
-                                <td>${recipeItem.description}</td>
-                                <td>${recipeItem.category}</td>
-                                <td><img src="${recipe.image_url}" style="max-width:100px"></td>
-                              <td><button class="detail-button" onclick="window.location.href='/recipe/detail?id=${recipeItem.id}'">Detail</button></td>
-                              <td><button class="edit-button" onclick="window.location.href='/recipe/edit/${recipeItem.id}'">Edit</button></td>
+                                <td style="color: white;">${recipeItem.id}</td>
+                                <td style="color: white;">${recipeItem.name}</td>
+                                <td style="color: white;">${recipeItem.description}</td>
+                                <td style="color: white;">${recipeItem.category}</td>
+                                <td style="color: white;"><img src="${recipe.image_url}" style="max-width:100px"></td>
+                              <td style="color: white;"><button class="detail-button" onclick="window.location.href='/recipe/detail?id=${recipeItem.id}'">Detail</button></td>
+                              <td style="color: white;"><button class="edit-button" onclick="window.location.href='/recipe/edit/${recipeItem.id}'">Edit</button></td>
 
 
                             </tr>

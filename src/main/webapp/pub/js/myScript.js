@@ -5,15 +5,15 @@
 
         ingredientDiv.innerHTML = `
             <div class="col">
-                <label>Ingredient Name:</label>
+                <label style="color: white;">Ingredient Name:</label>
                 <input type="text" name="ingredientName" class="form-control" required>
             </div>
             <div class="col">
-                <label>Measurement:</label>
-                <input type="text" name="measurement" class="form-control" required>
+                <label style="color: white;">Measurement:</label>
+                <input type="text" name="measurement" class="form-control"  required>
             </div>
             <div class="col">
-                <label>Quantity:</label>
+                <label style="color: white;">Quantity:</label>
                 <input type="number" name="quantity" class="form-control" required>
             </div>
             <div class="col-auto">

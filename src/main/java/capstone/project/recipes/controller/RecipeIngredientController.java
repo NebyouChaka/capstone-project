@@ -4,7 +4,7 @@ import capstone.project.recipes.database.dao.IngredientDAO;
 import capstone.project.recipes.database.dao.RecipeIngredientDAO;
 import capstone.project.recipes.database.entity.Ingredient;
 import capstone.project.recipes.database.entity.RecipeIngredient;
-import capstone.project.recipes.formbean.RecipeIngredientFormBean;
+
 import capstone.project.recipes.service.RecipeIngredientService;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;

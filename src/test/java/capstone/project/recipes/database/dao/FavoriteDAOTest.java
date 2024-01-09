@@ -20,8 +20,8 @@ public class FavoriteDAOTest {
     @Order(1)
     public void findFavoriteByUserIdAndRecipeIdTest() {
         // given
-        int userId = 1; // Replace with a valid user ID
-        int recipeId = 21; // Replace with a valid recipe ID
+        int userId = 3; // Replace with a valid user ID
+        int recipeId = 27; // Replace with a valid recipe ID
 
         // when
         Optional<Favorite> favorite = favoriteDAO.findByUserIdAndRecipeId(userId, recipeId);

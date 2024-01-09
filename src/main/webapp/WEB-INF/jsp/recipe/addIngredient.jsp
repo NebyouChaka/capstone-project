@@ -14,12 +14,12 @@
             <!-- Ingredient input fields will be added here by JavaScript -->
         </div>
 
-        <button type="button" id="addIngredientButton">Add More Ingredients</button>
+        <button type="button" id="addIngredientButton" class="btn btn-primary">Add More Ingredients</button>
         <button type="submit" class="btn btn-primary">Submit Ingredients</button>
     </form>
 </div>
 
-<div class="mt-4 text-center">
+<div class="mt-4 text-center" id= "addingColor">
     <h3>Recipe Details</h3>
     <table class="table table-bordered w-75 mx-auto">
         <thead>

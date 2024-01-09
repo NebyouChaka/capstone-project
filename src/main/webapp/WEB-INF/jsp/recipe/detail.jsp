@@ -7,7 +7,7 @@
 <jsp:include page="../include/header.jsp"/>
 
 <section>
-    <div class="bg-light2 pt-1 pb-1 mt-3 mb-3"> <!-- Added margin and padding classes -->
+    <div > <!-- Added margin and padding classes -->
         <div class="row1">
             <div class="col-12 text-center">
                 <h1 class="m-0" id="spacer2">Recipe Details</h1>

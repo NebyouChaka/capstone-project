@@ -5,8 +5,8 @@
 
 
 <section>
-    <div class="container mt-5 mb-4">
-        <h2>Recipes in Category: ${category}</h2>
+    <div class="container ">
+        <h2 style="padding: 100px;">Recipes in Category: ${category}</h2>
     </div>
 </section>
 
@@ -15,21 +15,21 @@
          <table class="table">
              <thead>
                       <tr>
-                        <th>Category</th>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Image</th>
-                        <th>Details</th>
+                        <th style="color: white;">Category</th>
+                        <th style="color: white;">Name</th>
+                        <th style="color: white;">Description</th>
+                        <th style="color: white;">Image</th>
+                        <th style="color: white;">Details</th>
                       </tr>
             </thead>
             <tbody>
                 <c:forEach items="${recipes}" var="recipe">
                       <tr>
-                        <td>${category}</td> <!-- Category column -->
-                        <td>${recipe.name}</td>
-                        <td>${recipe.description}</td>
-                        <td><img src="${recipe.image_url}" alt="Image of ${recipe.name}" style="height: 100px; width: 200px;"></td>
-                         <td>
+                        <td style="color: white;">${category}</td> <!-- Category column -->
+                        <td style="color: white;">${recipe.name}</td>
+                        <td style="color: white;">${recipe.description}</td>
+                        <td style="color: white;"><img src="${recipe.image_url}" alt="Image of ${recipe.name}" style="height: 100px; width: 200px;"></td>
+                         <td style="color: white;">
                          <a href="/recipe/detail?id=${recipe.id}" class="btn btn-primary">Details</a>
                          </td>
                     </tr>

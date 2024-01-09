@@ -58,11 +58,7 @@
                    <li class="nav-item">
                        <a class="nav-link" href="/auth/logout">Logout</a>
                    </li>
-                    <li class="nav-item">
-                     <c:if test="${not empty user.profilePhoto}">
-                       <img src="${pageContext.request.contextPath}/webapp/pub/images/${user.profilePhoto}" alt="Profile Photo" class="navbar-profile-photo" />
-                       </c:if>
-                     </li>
+
                      <li class="nav-item">
                           <a class="nav-link" href="/favorites">My Favorites</a>
                       </li>
@@ -79,3 +75,16 @@
     </div>
 </nav>
   </div>
+  <script> function logUserProfilePhoto() {
+                     var profilePhotoUrl = document.getElementById("data-profilePhoto").src
+
+                      if (profilePhotoUrl) {
+                          console.log("User's profile photo URL:", profilePhotoUrl);
+                      } else {
+                          console.log("No profile photo URL found.");
+                      }
+                  }
+
+                  // Call the function on page load
+                  document.addEventListener('DOMContentLoaded', logUserProfilePhoto);
+                  </script>

@@ -2,6 +2,7 @@ package capstone.project.recipes.controller;
 
 import capstone.project.recipes.database.dao.UserDAO;
 import capstone.project.recipes.database.entity.User;
+
 import capstone.project.recipes.formbean.RegisterUserFormBean;
 import capstone.project.recipes.security.AuthenticatedUserService;
 import capstone.project.recipes.service.UserService;

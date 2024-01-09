@@ -2,30 +2,30 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/pub/CSS/global-style.css">
 <jsp:include page="../include/header.jsp"/>
 
-<div class="container mt-5 mb-4">
+<div class="container7 ">
     <h1 class="mb-4" id="spacer1">Your Favorite Recipes</h1>
     <c:choose>
         <c:when test="${not empty favorites}">
             <div class="table-responsive">
-                <table class="table table-hover" style="background-color: #ffffff;">
+                <table class="table table-hover" >
                     <thead class="thead-dark">
                         <tr>
-                            <th>Id</th>
-                            <th>Name</th>
-                            <th>Description</th>
-                            <th>Category</th>
-                            <th>Image URL</th>
-                            <th>Actions</th>
+                            <th style="color: white;">Id</th>
+                            <th style="color: white;">Name</th>
+                            <th style="color: white;">Description</th>
+                            <th style="color: white;">Category</th>
+                            <th style="color: white;">Image URL</th>
+                            <th style="color: white;">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         <c:forEach items="${favorites}" var="favorite">
                             <tr>
-                                <td>${favorite.recipe.id}</td>
-                                <td>${favorite.recipe.name}</td>
-                                <td>${favorite.recipe.description}</td>
-                                <td>${favorite.recipe.category}</td>
-                                <td><img src="${favorite.recipe.image_url}" alt="${favorite.recipe.name}" style="max-width:100px; height:auto;"></td>
+                                <td style="color: white;">${favorite.recipe.id}</td>
+                                <td style="color: white;">${favorite.recipe.name}</td>
+                                <td style="color: white;">${favorite.recipe.description}</td>
+                                <td style="color: white;">${favorite.recipe.category}</td>
+                                <td style="color: white;"><img src="${favorite.recipe.image_url}" alt="${favorite.recipe.name}" style="max-width:100px; height:auto;"></td>
                                 <td>
                                    <button class="button-link detail-button" onclick="window.location.href='/recipe/detail?id=${favorite.recipe.id}'">Detail</button>
 

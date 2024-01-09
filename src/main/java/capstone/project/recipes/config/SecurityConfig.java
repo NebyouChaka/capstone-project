@@ -31,7 +31,6 @@ public class SecurityConfig {
                 .requestMatchers(
 
                         new AntPathRequestMatcher("/recipe/addIngredient/**"),
-
                         new AntPathRequestMatcher("/admin/**"),
                         new AntPathRequestMatcher("/user/**")).authenticated()
                 .anyRequest().permitAll();

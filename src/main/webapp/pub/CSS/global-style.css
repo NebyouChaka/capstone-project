@@ -2,10 +2,10 @@
 
 body::before {
     content: "";
-    background-image: url('/pub/images/foods_icon.jpg');
+    background-color: black;
     background-size: 50px 50px; /* Adjust the size of your small images */
     background-repeat: repeat; /* Repeat the pattern */
-    filter: blur(3px); /* Adjust the opacity value as needed (0.0 to 1.0) */
+
     position: fixed;
     top: 0;
     left: 0;
@@ -15,18 +15,22 @@ body::before {
     }
 h1{
     font-size: 50px;
+    color: white ;
 }
 h3{
     margin:20px;
+    color: white !important;
 }
 h2 {
     margin: 100px;
     font-size: 40px;
+    color: white !important;
 }
 h4{
     color: black;
     margin: 20px;
     font-size: 30px;
+    color: white !important;
 }
 h5{
     color: white;
@@ -121,7 +125,7 @@ a  {
 .btn-custom-delete {
     background-color: #f44336; /* Red background */
     color: white; /* White text */
-    width: 80px;
+    width: 75px;
     margin: 5px;
 }
 
@@ -217,6 +221,10 @@ a  {
     background-color: #FF5733; /* Change background color on hover */
     color: #ffffff; /* Change text color on hover */
 }
+ .button-link{
+    margin-left: 30px;
+    width: 100px;
+ }
 .clearfix::after {
     content: "";
     clear: both;
@@ -226,16 +234,20 @@ a  {
     min-height: 100vh;
     overflow-y: auto;
     margin-bottom: 100px; /* Adjust this value to control the space before the footer */
+    color: white;
 }
 .scrollable-content {
     max-height: calc(100vh - 100px); /* Adjust this value to control the maximum height of the content */
     overflow-y: auto;
 }
 .content-wrapper {
-    margin-top: 20px; /* Adjust margin as needed */
+    margin-top: 30px; /* Adjust margin as needed */
     margin-bottom: 80px;
     padding: 20px; /* Adjust padding as needed */
-    background-color: white;
+    padding-left: 160px;
+    padding-right: 160px;
+    padding-bottom: 160px;
+
     height: 100%;
     font-family: semibold;
 
@@ -243,14 +255,17 @@ a  {
 table{
     font-size: 30px;
     margin-bottom: 220px;
+    color: white;
+
 }
 .spacer {
-margin: 50px;
+margin: 100px;
     height: 100px; /* Adjust this value to match the height of your footer */
 }
 .spacer3 {
 margin-top: 1500px;
 margin-bottom: 400px;
+padding-top: 200px
 
 }
 .form-label {
@@ -259,6 +274,9 @@ margin-bottom: 400px;
 .scrollable-content {
     max-height: calc(100vh );
     overflow-y: auto;
+}
+#addingColor {
+    background-color: white;
 }
 
 
@@ -559,12 +577,38 @@ ul li {
 .card-text{
     margin: 30px
 }
-.container {
-background-color: white;
-}
+
 .bg-light2 {
     background-color: white;
 }
 .pt-5 {
      background-color: white;
+}
+
+//-------------------------------Register-----------------------
+.custom-input {
+    width: 100%;
+}
+
+/* Make the button match the width of input fields */
+.custom-button {
+    width: 50%;
+}
+.high{
+    padding-top: 100px;
+    padding-bottom: 500px;
+}
+//---------------------------Admin----------------------------
+tbody {
+    color: white;
+}
+.container7{
+    padding-top: 100px;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-bottom: 100px
+}
+.spacer7 {
+    margin: 200px;
+    height: 100px; /* Adjust this value to match the height of your footer */
 }
