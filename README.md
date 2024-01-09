@@ -40,6 +40,7 @@
 - Maven
 - MySQL
 - Hibernate
+- JDK
 
 ## Getting Started
 
@@ -60,13 +61,7 @@ The application will be accessible at `http://localhost:8080`.
 
 ## Screenshots
 
-![Screenshot 1](C:\Users\nebyo\Devlopment\recipes\src\main\webapp\pub\images\recepe_home_page.png "The Recipes Home Page")
 
-![Screenshot 2](C:\Users\nebyo\Devlopment\recipes\src\main\webapp\pub\images\userRegister.png)
-
-![Screenshot 2](C:\Users\nebyo\Devlopment\recipes\src\main\webapp\pub\images\favoritePage.png)
-
-![Screenshot 2](C:\Users\nebyo\Devlopment\recipes\src\main\webapp\pub\images\categoryPage.png)
 
 ## Creator
 
